@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 const Page = () => {
   const {t}= useTranslation();
-  const title = "Documents";
+  const title = "All Image";
   return (
     <>
       <Head>

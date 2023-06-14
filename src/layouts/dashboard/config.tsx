@@ -52,12 +52,49 @@ export const items = [
     disabled: false,
     menu: false,
     title: "Documents",
-    path: "/Documents",
     icon: (
       <SvgIcon fontSize="small">
         <NotificationAddIcon />
       </SvgIcon>
     ),
+    children: [
+      {
+        external: false,
+        disabled: false,
+        menu: false,
+        title: "All-Documents",
+        path: "/Documents/All-Documents",
+        icon: (
+          <SvgIcon fontSize="small">
+            <NoCrashIcon />
+          </SvgIcon>
+        ),
+      },
+      {
+        external: false,
+        disabled: false,
+        menu: false,
+        title: "All Image",
+        path: "/Documents/All-Image",
+        icon: (
+          <SvgIcon fontSize="small">
+            <CarCrashIcon />
+          </SvgIcon>
+        ),
+      },
+      {
+        external: false,
+        disabled: false,
+        menu: false,
+        title: "Workbooks",
+        path: "/Documents/Workbooks",
+        icon: (
+          <SvgIcon fontSize="small">
+            <CarCrashIcon />
+          </SvgIcon>
+        ),
+      },
+    ],
   },
   {
     external: false,
