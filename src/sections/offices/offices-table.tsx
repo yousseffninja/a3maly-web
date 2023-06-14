@@ -47,106 +47,84 @@ export const OfficesTable = (props: any) => {
   const selectedAll = items?(items.length > 0) && selected.length === items.length: false;
 
   return (
-    <Card>
-      <Scrollbar>
-        <Box sx={{ minWidth: 800 }}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={selectedAll}
-                    indeterminate={selectedSome}
-                    onChange={(event) => {
-                      if (event.target.checked) {
-                        onSelectAll?.();
-                      } else {
-                        onDeselectAll?.();
-                      }
-                    }}
-                  />
-                </TableCell>
-                <TableCell>{t('#')}</TableCell>
-                <TableCell>{t('Administrator Name')}</TableCell>
-                <TableCell>{t('Office Code')}</TableCell>
-                <TableCell>{t('Office Name')}</TableCell>
-                <TableCell>{t('Status')}</TableCell>
-                <TableCell>{t('Created at')}</TableCell>
-                <TableCell>
-                  <SvgIcon fontSize="small">
-                    <CogIcon />
-                  </SvgIcon>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {items.map((office: any) => {
-                const isSelected = selected.includes(office.id);
-                const created_at = office.created_at? format(Date.parse(office.created_at), "dd/MM/yyyy") : null;
-                const deleted_at = office.deleted_at
-                  ? format(Date.parse(office.deleted_at), "dd/MM/yyyy")
-                  : null;
-                // const [checked, setChecked] = useState(office.deleted_at);
-                const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-                  // setChecked(event.target.checked);
-                  handleSuspend(office.id);
-                };
-                
-                const handleRoute = (event: React.ChangeEvent<HTMLInputElement>) => {
-                  router.push(`offices/${office.id}`);
-                };
+    <Card sx={{width: "49%"}}>
+      <Box sx={{ minWidth: "49%" }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>{t('Image')}</TableCell>
+              <TableCell>{t('Resolution')}</TableCell>
+              <TableCell>{t('Created On')}</TableCell>
+              <TableCell>{t('Action')}</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {items.map((office: any) => {
+              const isSelected = selected.includes(office.id);
+              const created_at = office.created_at? format(Date.parse(office.created_at), "dd/MM/yyyy") : null;
+              const deleted_at = office.deleted_at
+                ? format(Date.parse(office.deleted_at), "dd/MM/yyyy")
+                : null;
+              // const [checked, setChecked] = useState(office.deleted_at);
+              const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+                // setChecked(event.target.checked);
+                handleSuspend(office.id);
+              };
 
-                return (
-                  <TableRow hover key={office.id} selected={isSelected}>
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        checked={isSelected}
-                        onChange={(event) =>  {
-                          if (event.target.checked) {
-                            onSelectOne?.(office.id);
-                          } else {
-                            onDeselectOne?.(office.id);
-                          }
-                        }}
+              const handleRoute = (event: React.ChangeEvent<HTMLInputElement>) => {
+                router.push(`offices/${office.id}`);
+              };
+
+              return (
+                <TableRow hover key={office.id} selected={isSelected}>
+                  <TableCell padding="checkbox">
+                    <Checkbox
+                      checked={isSelected}
+                      onChange={(event) =>  {
+                        if (event.target.checked) {
+                          onSelectOne?.(office.id);
+                        } else {
+                          onDeselectOne?.(office.id);
+                        }
+                      }}
+                    />
+                  </TableCell>
+                  <TableCell>{office.account}</TableCell>
+                  <TableCell>
+                    <Stack alignItems="center" direction="row" spacing={2}>
+                      <Avatar src={office.avatar}>{getInitials(office.name)}</Avatar>
+                      <Typography variant="subtitle2">{office.name}</Typography>
+                    </Stack>
+                  </TableCell>
+                  <TableCell>{office["shipping_office"].code}</TableCell>
+                  <TableCell>
+                {  office["shipping_office"].name}
+                  </TableCell>
+
+                  <TableCell>
+                    <Switch
+                      checked={office.deleted_at == null}
+                      onChange={handleChange}
+                      inputProps={{ "aria-label": "controlled" }}
                       />
-                    </TableCell>
-                    <TableCell>{office.account}</TableCell>
+                    {deleted_at}
+                  </TableCell>
                     <TableCell>
-                      <Stack alignItems="center" direction="row" spacing={2}>
-                        <Avatar src={office.avatar}>{getInitials(office.name)}</Avatar>
-                        <Typography variant="subtitle2">{office.name}</Typography>
-                      </Stack>
-                    </TableCell>
-                    <TableCell>{office["shipping_office"].code}</TableCell>
-                    <TableCell>
-                  {  office["shipping_office"].name}
-                    </TableCell>
-                   
-                    <TableCell>
-                      <Switch
-                        checked={office.deleted_at == null}
-                        onChange={handleChange}
-                        inputProps={{ "aria-label": "controlled" }}
-                        />
-                      {deleted_at}
+                  { created_at}
                     </TableCell>
                       <TableCell>
-                    { created_at}
+                        <MenuButton
+                          items={[
+                            {label: "View", onClick: handleRoute},
+                          ]}
+                        />
                       </TableCell>
-                        <TableCell>
-                          <MenuButton 
-                            items={[
-                              {label: "View", onClick: handleRoute},
-                            ]}
-                          />
-                        </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </Box>
-      </Scrollbar>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Box>
       <TablePagination
         component="div"
         count={count}
