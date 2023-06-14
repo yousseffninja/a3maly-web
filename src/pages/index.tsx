@@ -1,55 +1,41 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import { subDays, subHours } from 'date-fns';
-import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid, Stack
+} from '@mui/material';
 import React from 'react';
 import { DashboardLayout } from '../layouts/dashboard/layout';
-import { OverviewLatestOrders } from '../sections/overview/overview-latest-orders';
-import { OverviewLatestVehicles } from '../sections/overview/overview-latest-vehicles';
 import OrderContextProvider from '@/contexts/order-context';
-const now = new Date();
+
 import { useTranslation } from 'react-i18next';
 
 const Page = () => {
     const {t}= useTranslation();
+    const title = "Dashboard";
   return(
   <>
     <Head>
       <title>
-        {t("Overview")} | Pronto
+        {t(title)} | Pronto
       </title>
     </Head>
     <Box
       component="main"
       sx={{
         flexGrow: 1,
-        py: 8
+        py: 8,
       }}
     >
       <Container maxWidth="xl">
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            xs={12}
-            md={6}
-            lg={4}
-          >
-            <OverviewLatestVehicles
-              sx={{ height: '100%' }}
-            />
-          </Grid>
-          <Grid
-            xs={12}
-            md={12}
-            lg={8}
-          >
-            <OverviewLatestOrders
-              sx={{ height: '100%' }}
-            />
-          </Grid>
-        </Grid>
+        <Stack spacing={3}>
+          <Stack direction="row" justifyContent="space-between" spacing={4}>
+            <Stack spacing={1}>
+              <Typography variant="h4">{t(title)}</Typography>
+            </Stack>
+          </Stack>
+        </Stack>
       </Container>
     </Box>
   </>
@@ -57,7 +43,7 @@ const Page = () => {
 }
 Page.getLayout = (page: any) => (
   <DashboardLayout>
-    <OrderContextProvider> {page}</OrderContextProvider>
+    {page}
   </DashboardLayout>
 );
 
