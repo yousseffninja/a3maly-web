@@ -11,7 +11,7 @@ import {
   TextField,
   Select,
   MenuItem,
-  SelectChangeEvent,
+  Grid,
   Button
 } from '@mui/material';
 
@@ -20,6 +20,22 @@ import { OfficesTable } from "@/sections/offices/offices-table";
 const Page = () => {
   const {t}= useTranslation();
   const title = "AI Image";
+
+  const Artist = [
+    {
+      id: 1,
+      name: "Artist 1"
+    },
+    {
+      id: 2,
+      name: "Artist 2"
+    },
+    {
+      id: 3,
+      name: "Artist 3"
+    }
+  ]
+
   return (
     <>
       <Head>
@@ -70,26 +86,194 @@ const Page = () => {
                       dir="ltr"
                     />
                   </Stack>
-
+                  <Stack sx={{ gap: 1, flexGrow: 1, mt: 2 }}>
+                    <Typography variant="h6">{t("Artist Name")}</Typography>
+                    <Select
+                      value={Artist[0]?.id}
+                      required={true}
+                      onChange={() => null}
+                      inputProps={{ "aria-label": "Without label" }}
+                      sx={{
+                        height: 'auto',
+                        maxHeight: 100,
+                        overflowY: 'auto',
+                        width: "100%"
+                      }
+                    }
+                    >
+                      {Artist &&
+                        Artist?.map((art: any) => (
+                          <MenuItem key={art?.id} value={art?.id} >
+                            {art?.name}
+                          </MenuItem>
+                        ))}
+                    </Select>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" sx={{ gap: 1, flexGrow: 1, mt: 2, }}>
+                    <Grid sx={{width: "100%"}}>
+                      <Typography variant="h6">{t("Image Style")}</Typography>
+                      <Select
+                        value={Artist[0]?.id}
+                        required={true}
+                        onChange={() => null}
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          height: 'auto',
+                          maxHeight: 100,
+                          overflowY: 'auto',
+                          width: "100%"
+                        }
+                        }
+                      >
+                        {Artist &&
+                          Artist?.map((art: any) => (
+                            <MenuItem key={art?.id} value={art?.id} >
+                              {art?.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </Grid>
+                    <Grid sx={{width: "100%"}}>
+                      <Typography variant="h6">{t("Medium")}</Typography>
+                      <Select
+                        value={Artist[0]?.id}
+                        required={true}
+                        onChange={() => null}
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          height: 'auto',
+                          maxHeight: 100,
+                          overflowY: 'auto',
+                          width: "100%"
+                        }
+                        }
+                      >
+                        {Artist &&
+                          Artist?.map((art: any) => (
+                            <MenuItem key={art?.id} value={art?.id} >
+                              {art?.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </Grid>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" sx={{ gap: 1, flexGrow: 1, mt: 2, }}>
+                    <Grid sx={{width: "100%"}}>
+                      <Typography variant="h6">{t("Lightning Style")}</Typography>
+                      <Select
+                        value={Artist[0]?.id}
+                        required={true}
+                        onChange={() => null}
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          height: 'auto',
+                          maxHeight: 100,
+                          overflowY: 'auto',
+                          width: "100%"
+                        }
+                        }
+                      >
+                        {Artist &&
+                          Artist?.map((art: any) => (
+                            <MenuItem key={art?.id} value={art?.id} >
+                              {art?.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </Grid>
+                    <Grid sx={{width: "100%"}}>
+                      <Typography variant="h6">{t("Mood")}</Typography>
+                      <Select
+                        value={Artist[0]?.id}
+                        required={true}
+                        onChange={() => null}
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          height: 'auto',
+                          maxHeight: 100,
+                          overflowY: 'auto',
+                          width: "100%"
+                        }
+                        }
+                      >
+                        {Artist &&
+                          Artist?.map((art: any) => (
+                            <MenuItem key={art?.id} value={art?.id} >
+                              {art?.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </Grid>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" sx={{ gap: 1, flexGrow: 1, mt: 2, }}>
+                    <Grid sx={{width: "100%"}}>
+                      <Typography variant="h6">{t("Image Resolution")}</Typography>
+                      <Select
+                        value={Artist[0]?.id}
+                        required={true}
+                        onChange={() => null}
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          height: 'auto',
+                          maxHeight: 100,
+                          overflowY: 'auto',
+                          width: "100%"
+                        }
+                        }
+                      >
+                        {Artist &&
+                          Artist?.map((art: any) => (
+                            <MenuItem key={art?.id} value={art?.id} >
+                              {art?.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </Grid>
+                    <Grid sx={{width: "100%"}}>
+                      <Typography variant="h6">{t("Number of Variations")}</Typography>
+                      <Select
+                        value={Artist[0]?.id}
+                        required={true}
+                        onChange={() => null}
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          height: 'auto',
+                          maxHeight: 100,
+                          overflowY: 'auto',
+                          width: "100%"
+                        }
+                        }
+                      >
+                        {Artist &&
+                          Artist?.map((art: any) => (
+                            <MenuItem key={art?.id} value={art?.id} >
+                              {art?.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </Grid>
+                  </Stack>
                   <Button sx={{ mt: 3, px: 8 }} variant="contained" color="primary" type="submit">
                     {t("Generate")}
                   </Button>
                 </form>
               </Card>
-              <OfficesTable
-                count={0}
-                items={[]}
-                onDeselectAll={() => null}
-                onDeselectOne={() => null}
-                onPageChange={() => null}
-                onRowsPerPageChange={() => null}
-                onSelectAll={() => null}
-                onSelectOne={() => null}
-                page={1}
-                rowsPerPage={1}
-                selected={[]}
+              <Grid sx={{ width: "49%" }}>
+                <OfficesTable
+                  count={0}
+                  items={[]}
+                  onDeselectAll={() => null}
+                  onDeselectOne={() => null}
+                  onPageChange={() => null}
+                  onRowsPerPageChange={() => null}
+                  onSelectAll={() => null}
+                  onSelectOne={() => null}
+                  page={1}
+                  rowsPerPage={1}
+                  selected={[]}
 
-              />
+                />
+              </Grid>
             </Stack>
           </Stack>
         </Container>

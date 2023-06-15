@@ -47,7 +47,7 @@ export const OfficesTable = (props: any) => {
   const selectedAll = items?(items.length > 0) && selected.length === items.length: false;
 
   return (
-    <Card sx={{width: "49%"}}>
+    <Card sx={{width: "100%"}}>
       <Box sx={{ minWidth: "49%" }}>
         <Table>
           <TableHead>
