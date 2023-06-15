@@ -14,22 +14,25 @@ import {
   Tab,
   Tabs,
   TextField,
-  Typography
+  Typography, FormControl, FormLabel
 } from '@mui/material';
 import React from 'react';
 import { useAuth } from '../../hooks/use-auth';
 import { AuthLayout } from '../../layouts/auth/layout';
 import { useTranslation } from 'react-i18next';
+import { display } from '@mui/system';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
 const Page = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const auth = useAuth();
-  const [method, setMethod] = useState('username');
+  const [method, setMethod] = useState('email');
   const formik = useFormik({
     initialValues: {
-      username: 'admin',
-      password: 'Password123!',
+      email: '',
+      password: '',
       submit: null
     },
     validationSchema: Yup.object({
@@ -44,7 +47,7 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        await auth?.signIn(values.username, values.password);
+        await auth?.signIn(values.email, values.password);
         router.push('/');
       } catch (err:any) {
         helpers.setStatus({ success: false });
@@ -53,7 +56,11 @@ const Page = () => {
       }
     }
   });
-
+  // Keep me logged in
+  const [checked, setChecked] = React.useState(true);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
   const handleMethodChange = useCallback(
     (_event: any, value: React.SetStateAction<string>) => {
       setMethod(value);
@@ -82,7 +89,8 @@ const Page = () => {
           flex: '1 1 auto',
           alignItems: 'center',
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          direction: 'rtl'
         }}
       >
         <Box
@@ -98,52 +106,44 @@ const Page = () => {
               spacing={1}
               sx={{ mb: 3 }}
             >
-              <Typography variant="h4">
-                {t('Login')}
+              <Typography variant="h5" sx={{display:"flex" ,direction:"rtl",justifyContent:"center",fontWeight:700}} >
+                {t('Welcome Back to')} <Typography  variant="h5" color="#007BFF" mx={1}> Unda</Typography>
               </Typography>
             </Stack>
-            <Tabs
-              onChange={handleMethodChange}
-              sx={{ mb: 3 }}
-              value={method}
-            >
-              <Tab
-                label={t('username')}
-                value="username"
-              />
-              {/* <Tab
-                label="Phone Number"
-                value="phoneNumber"
-              /> */}
-            </Tabs>
-            {method === 'username' && (
+            {method === 'email' && (
               <form
                 noValidate
                 onSubmit={formik.handleSubmit}
               >
                 <Stack spacing={3}>
-                  <TextField
-                    error={!!(formik.touched.username && formik.errors.username)}
-                    fullWidth
-                    helperText={formik.touched.username && formik.errors.username}
-                    label={t('username')}
-                    name="username"
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                    type="username"
-                    value={formik.values.username}
-                  />
+                  <FormControl>
+                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle1" color="#000" mx={1}>{t("Email Address")}</Typography></FormLabel>
+                      <TextField
+                        error={!!(formik.touched.email && formik.errors.email)}
+                        fullWidth
+                        helperText={formik.touched.email && formik.errors.email}
+                        placeholder={`${t('Email Address')}`}
+                        name="email"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        type="email"
+                        value={formik.values.email}
+                        />
+                    </FormControl>
+                    <FormControl>
+                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle1" color="#000" mx={1}>{t("Password")}</Typography></FormLabel>
                   <TextField
                     error={!!(formik.touched.password && formik.errors.password)}
                     fullWidth
                     helperText={formik.touched.password && formik.errors.password}
-                    label={t('password')}
+                    placeholder={`${t('Password')}`}
                     name="password"
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
                     type="password"
                     value={formik.values.password}
                   />
+                  </FormControl>
                 </Stack>
                 {formik.errors.submit && (
                   <Typography
@@ -154,17 +154,56 @@ const Page = () => {
                     {formik.errors.submit}
                   </Typography>
                 )}
-                <Button
-                  fullWidth
-                  size="large"
-                  sx={{ mt: 3 }}
-                  type="submit"
-                  variant="contained"
-                >
-                  {t('continue')}
-                </Button> 
+                <Box sx={{
+                        display:"flex",
+                        justifyContent:"space-between",
+                        my:1
+                      }}>
+                    <FormControl>
+                    <FormControlLabel 
+                    control={<Switch 
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                        />} 
+                        label={<FormLabel><Typography variant="subtitle1" color="initial">Keep me logged in</Typography></FormLabel>}
+                        sx={{m:0}}
+                        />
+
+                    </FormControl>
+                    <Typography variant="subtitle1" color="initial"><Link sx={{textDecoration:"none",'&:hover':{color:"#000"}}} href='/forget-password'>Forgot Your Password?</Link></Typography>
+                </Box>
+                <Box sx={{display:"flex",gap:1,textTransform:"uppercase"}}>
+                  <Button
+                    size="small"
+                    sx={{ mt: 3,textTransform:"uppercase" }}
+                    type="submit"
+                    variant="contained"
+                  >
+                    {t('Login')}
+                  </Button> 
+                  <Button
+                    size="small"
+                    sx={{ mt: 3,textTransform:"uppercase",backgroundColor:'#000',
+                     '&:hover':
+                     {
+                      color: "#fff !important",
+                      backgroundColor:" #D13212",
+                      borderColor:" #D13212",
+                    }
+                    }
+                    }
+                    type="button"
+                    variant="contained"
+                    
+                    onClick={()=> router.push("/auth/register")}
+                  >
+                    {t('Sign Up')}
+                  </Button> 
+                </Box>
               </form>
             )}
+            <Typography py={2} variant="caption">By continuing, you agree to our Terms and Conditions and Privacy Policy</Typography>
           </div>
         </Box>
       </Box>

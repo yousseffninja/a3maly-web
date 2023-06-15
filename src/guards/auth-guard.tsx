@@ -27,7 +27,7 @@ export const AuthGuard = (props: { children: any; }) => {
 
       ignore.current = true;
     //TODO: remove this && false when we done with guards
-      if (!useAuth?.isAuthenticated && false) {
+      if (!useAuth?.isAuthenticated && true) {
         router
           .replace({
             pathname: '/auth/login',

@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { Box, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import React from 'react';
 import Logo from '../../assets/logo.png';
+import LoginBg from '../../assets/Login/login-bg.png';
 import { useTranslation } from 'react-i18next';
 // TODO: Change subtitle text
 
@@ -15,7 +16,8 @@ export const AuthLayout = (props: { children: any; }) => {
       component="main"
       sx={{
         display: 'flex',
-        flex: '1 1 auto'
+        flex: '1 1 auto',
+        direction:"ltr"
       }}
     >
       <Grid
@@ -42,17 +44,6 @@ export const AuthLayout = (props: { children: any; }) => {
               width: '100%'
             }}
           >
-            <Box
-              component={NextLink}
-              href="/"
-              sx={{
-                display: 'inline-flex',
-                height: 50,
-                width: 50
-              }}
-            >
-              <img src={Logo.src} className="App-logo" alt="logo" />
-            </Box>
           </Box>
           {children}
         </Grid>
@@ -61,50 +52,18 @@ export const AuthLayout = (props: { children: any; }) => {
           lg={6}
           sx={{
             alignItems: 'center',
-            background: 'radial-gradient(50% 50% at 50% 50%, #122647 0%, #090E23 100%)',
+            background: `url(${LoginBg.src})`,
             color: 'white',
             display: 'flex',
             justifyContent: 'center',
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            height: "100%",
             '& img': {
               maxWidth: '100%'
             }
           }}
         >
-          <Box sx={{ p: 3 }}>
-            <Typography
-              align="center"
-              color="inherit"
-              sx={{
-                fontSize: '24px',
-                lineHeight: '32px',
-                mb: 1
-              }}
-              variant="h1"
-            >
-              {t('welcome')}{' '}
-              <Box
-                component="a"
-                sx={{ color: '#15B79E' }}
-                target="_blank"
-              >
-                {t('app_name')}
-              </Box>
-            </Typography>
-            <Typography
-              align="center"
-              sx={{ mb: 3 }}
-              variant="subtitle1"
-            >
-              A professional Dashboard for Delivery app
-            </Typography>
-            <Grid container justifyContent="center" alignItems="center">
-                <img
-                  alt=""
-                  width="200px"
-                  src={Logo.src}
-                />
-            </Grid>
-          </Box>
         </Grid>
       </Grid>
     </Box>

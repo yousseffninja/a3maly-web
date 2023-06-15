@@ -48,7 +48,7 @@ const Fonts = () => (
 class CustomDocument extends Document {
   render() {
     return (
-      <Html lang="en" dir='rtl'>
+      <Html lang="en" dir='ltr'>
         <Head>
           <Favicon />
           <Fonts />
@@ -65,6 +65,7 @@ class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap"
           />
           <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;1,700&family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

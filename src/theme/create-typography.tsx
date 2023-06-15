@@ -3,7 +3,7 @@ import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 export const createTypography: TypographyOptions | ((palette: Palette) => TypographyOptions) = () => {
   return {
-    fontFamily: 'Tajawal ,"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    fontFamily: 'Poppins ,Tajawal ,"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     body1: {
       fontSize: '1rem',
       fontWeight: 400,
@@ -42,37 +42,37 @@ export const createTypography: TypographyOptions | ((palette: Palette) => Typogr
       textTransform: 'uppercase'
     },
     h1: {
-      fontFamily: 'Tajawal, sans-serif',
+      fontFamily: 'Poppins , sans-serif',
       fontWeight: 700,
       fontSize: '3.5rem',
       lineHeight: 1.2
     },
     h2: {
-      fontFamily: 'Tajawal, sans-serif',
+      fontFamily: 'Poppins , sans-serif',
       fontWeight: 700,
       fontSize: '3rem',
       lineHeight: 1.2
     },
     h3: {
-      fontFamily: 'Tajawal, sans-serif',
+      fontFamily: 'Poppins , sans-serif',
       fontWeight: 700,
       fontSize: '2.25rem',
       lineHeight: 1.2
     },
     h4: {
-      fontFamily: 'Tajawal, sans-serif',
+      fontFamily: 'Poppins , sans-serif',
       fontWeight: 700,
       fontSize: '2rem',
       lineHeight: 1.2
     },
     h5: {
-      fontFamily: 'Tajawal, sans-serif',
+      fontFamily: 'Poppins , sans-serif',
       fontWeight: 700,
       fontSize: '1.5rem',
       lineHeight: 1.2
     },
     h6: {
-      fontFamily: 'Tajawal, sans-serif',
+      fontFamily: 'Poppins , sans-serif',
       fontWeight: 700,
       fontSize: '1.125rem',
       lineHeight: 1.2
