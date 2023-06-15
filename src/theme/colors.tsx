@@ -35,10 +35,10 @@ type colorType = {
 
 
 export const indigo = withAlphas({
-  lightest: '#F5F7FF',
-  light: '#EBEEFE',
-  main: '#6366F1',
-  dark: '#4338CA',
+  lightest: '#30A2FF',
+  light: '#00C4FF',
+  main: '#007BFF',
+  dark: '#27374D',
   darkest: '#312E81',
   contrastText: '#FFFFFF'
 });

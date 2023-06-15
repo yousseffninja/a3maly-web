@@ -107,7 +107,7 @@ const Page = () => {
               sx={{ mb: 3 }}
             >
               <Typography variant="h5" sx={{display:"flex" ,direction:"rtl",justifyContent:"center",fontWeight:700}} >
-                {t('Welcome Back to')} <Typography  variant="h5" color="#007BFF" mx={1}> Unda</Typography>
+                {t('Welcome Back to')} <Typography  variant="h5" color="primary" mx={1}> Unda</Typography>
               </Typography>
             </Stack>
             {method === 'email' && (

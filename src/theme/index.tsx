@@ -12,7 +12,7 @@ export function createTheme() {
   const typography: TypographyOptions | ((palette: Palette) => TypographyOptions) = createTypography;
   
   return createMuiTheme({
-    direction: 'rtl',
+    direction: 'ltr',
     breakpoints: {
       values: {
         xs: 0,
