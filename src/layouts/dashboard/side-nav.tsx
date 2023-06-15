@@ -33,7 +33,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
           height: '100%'
         },
         '& .simplebar-scrollbar:before': {
-          background: 'grey.500'
+          background: '#fff'
         }
       }}
     >
@@ -50,13 +50,12 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
             href="/"
             sx={{
               display: 'inline-flex',
-              height: 100,
               width: '100%',
               justifyContent:"center",
               
             }}
           >
-            <img src={Logo.src} className="App-logo" alt="logo" max-width={100} />
+            <img src={Logo.src} className="App-logo" alt="logo" max-width={"100%"} />
           </Box>
           <Box
             sx={{
