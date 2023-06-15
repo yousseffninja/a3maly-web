@@ -14,7 +14,7 @@ import {
   Tab,
   Tabs,
   TextField,
-  Typography, FormControl, FormLabel
+  Typography, FormControl, FormLabel, Grid
 } from '@mui/material';
 import React from 'react';
 import { useAuth } from '../../hooks/use-auth';
@@ -117,7 +117,7 @@ const Page = () => {
               >
                 <Stack spacing={3}>
                   <FormControl>
-                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle1" color="#000" mx={1}>{t("Email Address")}</Typography></FormLabel>
+                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle2" color="#000" mx={1}>{t("Email Address")}</Typography></FormLabel>
                       <TextField
                         error={!!(formik.touched.email && formik.errors.email)}
                         fullWidth
@@ -131,7 +131,7 @@ const Page = () => {
                         />
                     </FormControl>
                     <FormControl>
-                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle1" color="dark" mx={1}>{t("Password")}</Typography></FormLabel>
+                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle2" color="#000" mx={1}>{t("Password")}</Typography></FormLabel>
                   <TextField
                     error={!!(formik.touched.password && formik.errors.password)}
                     fullWidth
@@ -154,10 +154,11 @@ const Page = () => {
                     {formik.errors.submit}
                   </Typography>
                 )}
-                <Box sx={{
+                <Grid sx={{
                         display:"flex",
                         justifyContent:"space-between",
-                        my:1
+                        my:1,
+                        alignItems:"baseline",
                       }}>
                     <FormControl>
                     <FormControlLabel 
@@ -166,17 +167,17 @@ const Page = () => {
                         onChange={handleChange}
                         inputProps={{ 'aria-label': 'controlled' }}
                         />} 
-                        label={<FormLabel><Typography variant="subtitle1" color="initial">Keep me logged in</Typography></FormLabel>}
+                        label={<FormLabel><Typography variant="subtitle2" color="initial">Keep me logged in</Typography></FormLabel>}
                         sx={{m:0}}
                         />
 
                     </FormControl>
-                    <Typography variant="subtitle1" color="initial"><Link sx={{textDecoration:"none",'&:hover':{color:"#000"}}} href='/forget-password'>Forgot Your Password?</Link></Typography>
-                </Box>
+                    <Typography variant="subtitle2" color="initial"><Link sx={{textDecoration:"none",'&:hover':{color:"#000"}}} href='/forget-password'>Forgot Your Password?</Link></Typography>
+                </Grid>
                 <Box sx={{display:"flex",gap:1,textTransform:"uppercase"}}>
                   <Button
                     size="small"
-                    sx={{ mt: 3,textTransform:"uppercase" }}
+                    sx={{ mt: 3,textTransform:"uppercase",'&:hover':{background:"#000"} }}
                     type="submit"
                     variant="contained"
                   >
@@ -203,7 +204,7 @@ const Page = () => {
                 </Box>
               </form>
             )}
-            <Typography py={2} variant="caption">By continuing, you agree to our Terms and Conditions and Privacy Policy</Typography>
+            <Typography sx={{my:3}} variant="caption">By continuing, you agree to our Terms and Conditions and Privacy Policy</Typography>
           </div>
         </Box>
       </Box>

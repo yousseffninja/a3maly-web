@@ -132,7 +132,7 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
       styleOverrides: {
         input: {
           '&::placeholder': {
-            opacity: 1
+            opacity: .8
           }
         }
       }
@@ -188,7 +188,7 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
           }
         },
         input: {
-          fontSize: 12,
+          fontSize: "14px",
           borderWidth: "1px",
           fontWeight: 400,
           lineHeight: "1rem",
@@ -221,9 +221,12 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
           }
         },
         input: {
-          fontSize: 14,
-          fontWeight: 500,
-          lineHeight: '24px',
+          fontSize: "14px",
+          borderWidth: "1px",
+          fontWeight: 400,
+          lineHeight: "1rem",
+          padding: "0.75rem 1rem",
+          borderRadius: "0.5rem", 
         },
         notchedOutline: {
           borderColor: palette.grey[200],
@@ -238,7 +241,7 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
       styleOverrides: {
         root: {
           fontSize: 12,
-          fontWeight: 500,
+          fontWeight: 700,
           [`&.${inputLabelClasses.filled}`]: {
             transform: 'translate(12px, 18px) scale(1)'
           },

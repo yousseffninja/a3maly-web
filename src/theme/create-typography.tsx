@@ -21,7 +21,7 @@ export const createTypography: TypographyOptions | ((palette: Palette) => Typogr
     },
     caption: {
       fontSize: '0.75rem',
-      fontWeight: 500,
+      fontWeight: 400,
       lineHeight: 1.66
     },
     subtitle1: {
@@ -31,7 +31,7 @@ export const createTypography: TypographyOptions | ((palette: Palette) => Typogr
     },
     subtitle2: {
       fontSize: '0.875rem',
-      fontWeight: 500,
+      fontWeight: 300,
       lineHeight: 1.57
     },
     overline: {
