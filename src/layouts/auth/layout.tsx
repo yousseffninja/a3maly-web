@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import { Box, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import React from 'react';
-import Logo from '../../assets/logo.png';
 import LoginBg from '../../assets/Login/login-bg.png';
 import { useTranslation } from 'react-i18next';
 // TODO: Change subtitle text

@@ -155,6 +155,9 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
           backgroundColor: 'transparent',
           borderRadius: 8,
           borderStyle: 'solid',
+          fontSize: 14,  
+          fontWeight: 400,
+          lineHeight: "1rem",
           borderWidth: 1,
           overflow: 'hidden',
           borderColor: palette.grey[200],
@@ -185,9 +188,12 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
           }
         },
         input: {
-          fontSize: 14,
-          fontWeight: 500,
-          lineHeight: '24px'
+          fontSize: 12,
+          borderWidth: "1px",
+          fontWeight: 400,
+          lineHeight: "1rem",
+          padding: "0.75rem 1rem",
+          borderRadius: "0.5rem",
         }
       }
     },
@@ -231,7 +237,7 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: 500,
           [`&.${inputLabelClasses.filled}`]: {
             transform: 'translate(12px, 18px) scale(1)'
@@ -298,7 +304,7 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
     MuiTextField: {
       defaultProps: {
         variant: 'filled'
-      }
+      },
     }
   };
 }

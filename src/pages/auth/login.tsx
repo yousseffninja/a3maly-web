@@ -131,7 +131,7 @@ const Page = () => {
                         />
                     </FormControl>
                     <FormControl>
-                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle1" color="#000" mx={1}>{t("Password")}</Typography></FormLabel>
+                    <FormLabel><Typography sx={{fontWeight:"700"}} variant="subtitle1" color="dark" mx={1}>{t("Password")}</Typography></FormLabel>
                   <TextField
                     error={!!(formik.touched.password && formik.errors.password)}
                     fullWidth

@@ -3,18 +3,18 @@ import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 export const createTypography: TypographyOptions | ((palette: Palette) => TypographyOptions) = () => {
   return {
-    fontFamily: 'Poppins ,Tajawal ,"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    fontFamily: 'Poppins ,Poppins ,"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     body1: {
       fontSize: '1rem',
       fontWeight: 400,
       lineHeight: 1.5,
-      fontFamily: "Tajawal"
+      fontFamily: "Poppins"
     },
     body2: {
       fontSize: '0.875rem',
       fontWeight: 400,
       lineHeight: 1.57,
-      fontFamily: "Tajawal"
+      fontFamily: "Poppins"
     },
     button: {
       fontWeight: 600
