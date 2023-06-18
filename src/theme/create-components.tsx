@@ -68,7 +68,8 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
           padding: '32px 24px',
           '&:last-child': {
             paddingBottom: '32px'
-          }
+          },
+          direction: 'ltr'
         }
       }
     },
@@ -105,7 +106,8 @@ export function createComponents(palette: Palette): Components<Omit<Theme, 'comp
           flex: '1 1 auto',
           flexDirection: 'column',
           minHeight: '100%',
-          width: '100%'
+          width: '100%',
+          
         },
         '#__next': {
           display: 'flex',

@@ -19,6 +19,7 @@ import { usePopover } from '../../hooks/use-popover';
 import { AccountPopover } from './account-popover';
 import { Theme } from '@mui/material';
 import { useAuth } from '@/hooks/use-auth';
+import { common } from '@mui/material/colors';
 const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 
@@ -32,17 +33,20 @@ export const TopNav = (props: { onNavOpen: any; }) => {
       <Box
         component="header"
         sx={{
-          backdropFilter: 'blur(6px)',
-          backgroundColor: (theme) => alpha(theme.palette.background.default, 0.8),
-          position: 'sticky',
+          backdropFilter: "blur(6px)",
+          backgroundColor: common.white,
+          position: "sticky",
           left: {
-            lg: `${SIDE_NAV_WIDTH}px`
+            lg: 0,
           },
           top: 0,
           width: {
-            lg: `calc(100% - ${SIDE_NAV_WIDTH}px)`
+            lg: `100%`,
           },
-          zIndex: (theme) => theme.zIndex.appBar
+          right: SIDE_NAV_WIDTH,
+          zIndex: (theme) => theme.zIndex.appBar,
+          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+
         }}
       >
         <Stack

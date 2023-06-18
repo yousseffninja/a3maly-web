@@ -40,13 +40,15 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
           pl: "16px",
           pr: "16px",
           py: "6px",
-          textAlign: "left",
+          textAlign: "right",
+          gap: "10px",
           width: "100%",
           ...(active && {
             backgroundColor: "rgba(255, 255, 255, 0.04)",
           }),
           "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.04)",
+            backgroundColor: "primary.light",
+            color: "#fff",
           },
         }}
         {...linkProps}
@@ -56,9 +58,10 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
             component="span"
             sx={{
               alignItems: "center",
-              color: "grey.600",
+              color: "#000",
               display: "inline-flex",
               justifyContent: "center",
+              fontSize: 10,
               mr: 2,
               ...(active && {
                 color: "primary.main",
@@ -71,7 +74,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
         <Box
           component="span"
           sx={{
-            color: "grey.200",
+            color: "#000",
             flexGrow: 1,
             fontFamily: (theme) => theme.typography.fontFamily,
             fontSize: 14,
@@ -116,7 +119,8 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                     pl: 4,
                     pr: "16px",
                     py: "6px",
-                    textAlign: "left",
+                    textAlign: "right",
+                    gap:"10px",
                     width: "100%",
                     ...(child.active && {
                       backgroundColor: "rgba(255, 255, 255, 0.04)",
@@ -133,10 +137,11 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                       component="span"
                       sx={{
                         alignItems: "center",
-                        color: "grey.600",
+                        color:"grey.200",
                         display: "inline-flex",
+                        fontSize: 8,
                         justifyContent: "center",
-                        mr: 2,
+                        mr: "27px",
                         ...(child.active && {
                           color: "primary.main",
                         }),
@@ -148,10 +153,10 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                   <Box
                     component="span"
                     sx={{
-                      color: "grey.200",
+                      color: "#000",
                       flexGrow: 1,
                       fontFamily: (theme) => theme.typography.fontFamily,
-                      fontSize: 14,
+                      fontSize: 13,
                       fontWeight: 600,
                       lineHeight: "24px",
                       whiteSpace: "nowrap",
@@ -161,6 +166,12 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                       ...(disabled && {
                         color: "grey.500",
                       }),
+                      '&:hover':{
+                         marginRight: "5px",
+                        textDecoration: "none",
+                        transition: "all 0.3s",
+                        color: "primary.main",
+                      }
                     }}
                   >
                     {t(child.title)}

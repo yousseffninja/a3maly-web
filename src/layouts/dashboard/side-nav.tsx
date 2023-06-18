@@ -18,7 +18,7 @@ import { Scrollbar } from '../../components/scrollbar';
 import { items } from './config';
 import { SideNavItem } from './side-nav-item';
 import { Theme } from '@mui/material';
-
+import Avatar from "@mui/material/Avatar";
 export const SideNav = (props: { open: any; onClose: any; }) => {
   const { open, onClose } = props;
   const pathname = usePathname();
@@ -33,8 +33,10 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
           height: '100%'
         },
         '& .simplebar-scrollbar:before': {
-          background: '#fff'
-        }
+        },
+        direction: 'rtl',
+        background: '#fff',
+        color: '#000',
       }}
     >
       <Box
@@ -44,7 +46,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
           height: '100%'
         }}
       >
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ px: 3 }}>
           <Box
             component={NextLink}
             href="/"
@@ -52,46 +54,15 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
               display: 'inline-flex',
               width: '100%',
               justifyContent:"center",
-              
+              alignItems: "start",
+              height: '67px',
+              padding:"14px",
+              zIndex: (theme) => theme.zIndex.appBar + 350,
             }}
           >
             <img src={Logo.src} className="App-logo" alt="logo" max-width={"100%"} />
           </Box>
-          <Box
-            sx={{
-              alignItems: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.04)',
-              borderRadius: 1,
-              cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'space-between',
-              mt: 2,
-              p: '12px'
-            }}
-          >
-            <div>
-              <Typography
-                color="inherit"
-                variant="subtitle1"
-              >
-                Pronto
-              </Typography>
-              <Typography
-                color="grey.200"
-                variant="body2"
-              >
-                Production
-              </Typography>
-            </div>
-            <SvgIcon
-              fontSize="small"
-              sx={{ color: 'grey.200' }}
-            >
-              <ChevronUpDownIcon />
-            </SvgIcon>
-          </Box>
         </Box>
-        <Divider sx={{ borderColor: 'grey.700' }} />
         <Box
           component="nav"
           sx={{
@@ -134,7 +105,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
   if (lgUp) {
     return (
       <Drawer
-        anchor="left"
+        anchor="right"
         open
         PaperProps={{
           sx: {
@@ -152,7 +123,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
 
   return (
     <Drawer
-      anchor="left"
+      anchor="right"
       onClose={onClose}
       open={open}
       PaperProps={{
