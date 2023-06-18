@@ -15,6 +15,7 @@ import {
   Button
 } from '@mui/material';
 
+
 import { OfficesTable } from "@/sections/offices/offices-table";
 
 const Page = () => {
