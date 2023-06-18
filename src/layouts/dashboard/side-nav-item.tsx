@@ -48,6 +48,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
           }),
           "&:hover": {
             backgroundColor: "primary.light",
+            color: "#fff",
           },
         }}
         {...linkProps}
@@ -60,6 +61,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
               color: "#000",
               display: "inline-flex",
               justifyContent: "center",
+              fontSize: 10,
               mr: 2,
               ...(active && {
                 color: "primary.main",
@@ -137,6 +139,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                         alignItems: "center",
                         color:"grey.200",
                         display: "inline-flex",
+                        fontSize: 8,
                         justifyContent: "center",
                         mr: "27px",
                         ...(child.active && {
@@ -153,7 +156,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                       color: "#000",
                       flexGrow: 1,
                       fontFamily: (theme) => theme.typography.fontFamily,
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: 600,
                       lineHeight: "24px",
                       whiteSpace: "nowrap",

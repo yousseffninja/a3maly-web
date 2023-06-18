@@ -21,7 +21,7 @@ import CarCrashIcon from "@mui/icons-material/CarCrash";
 import CreditCardIcon from "@heroicons/react/24/solid/CreditCardIcon";
 import React from "react";
 import { truncate } from "fs";
-
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 export const items = [
   {
     external: false,
@@ -66,7 +66,7 @@ export const items = [
         path: "/Documents/All-Documents",
         icon: (
           <SvgIcon fontSize="small">
-            <NoCrashIcon />
+            <KeyboardDoubleArrowRightIcon />
           </SvgIcon>
         ),
       },
@@ -78,7 +78,7 @@ export const items = [
         path: "/Documents/All-Image",
         icon: (
           <SvgIcon fontSize="small">
-            <CarCrashIcon />
+            <KeyboardDoubleArrowRightIcon />
           </SvgIcon>
         ),
       },
@@ -90,7 +90,7 @@ export const items = [
         path: "/Documents/Workbooks",
         icon: (
           <SvgIcon fontSize="small">
-            <CarCrashIcon />
+            <KeyboardDoubleArrowRightIcon />
           </SvgIcon>
         ),
       },
