@@ -13,16 +13,17 @@ const LayoutRoot = styled('div')(({ theme }) => ({
   flex: '1 1 auto',
   maxWidth: '100%',
   [theme.breakpoints.up('lg')]: {
-    paddingRight: SIDE_NAV_WIDTH
+    paddingLeft: SIDE_NAV_WIDTH
   },
-  direction: 'rtl'
+  direction: 'ltr'
 }));
 
 const LayoutContainer = styled('div')({
   display: 'flex',
   flex: '1 1 auto',
   flexDirection: 'column',
-  width: '100%'
+  width: '100%',
+  background: "#F9F9FB"
 });
 
 export const DashboardLayout = withAuthGuard((props: { children: any; }) => {

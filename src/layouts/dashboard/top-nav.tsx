@@ -37,13 +37,12 @@ export const TopNav = (props: { onNavOpen: any; }) => {
           backgroundColor: common.white,
           position: "sticky",
           left: {
-            lg: 0,
+            lg: `${SIDE_NAV_WIDTH}px`
           },
           top: 0,
           width: {
-            lg: `100%`,
+            lg: `calc(100% - ${SIDE_NAV_WIDTH}px)`
           },
-          right: SIDE_NAV_WIDTH,
           zIndex: (theme) => theme.zIndex.appBar,
           boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
 

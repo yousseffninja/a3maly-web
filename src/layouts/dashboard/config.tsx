@@ -1,27 +1,12 @@
 import ChartBarIcon from "@heroicons/react/24/solid/ChartBarIcon";
-import CogIcon from "@heroicons/react/24/solid/CogIcon";
-import UserIcon from "@heroicons/react/24/solid/UserIcon";
-import UsersIcon from "@heroicons/react/24/solid/UsersIcon";
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
-import AddIcon from '@mui/icons-material/Add';
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import { SvgIcon } from "@mui/material";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import MarkEmailUnreadIcon from "@mui/icons-material/MarkEmailUnread";
-import TaxiAlertIcon from "@mui/icons-material/TaxiAlert";
-import DriveEtaIcon from "@mui/icons-material/DriveEta";
-import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
-import HomeIcon from '@mui/icons-material/Home';
-import BuildingOfficeIcon from "@heroicons/react/24/solid/BuildingOfficeIcon";
-import CurrencyDollarIcon from "@heroicons/react/24/solid/CurrencyDollarIcon";
-import BanknotesIcon from "@heroicons/react/24/solid/BanknotesIcon";
-import NoCrashIcon from "@mui/icons-material/NoCrash";
-import CarCrashIcon from "@mui/icons-material/CarCrash";
-import CreditCardIcon from "@heroicons/react/24/solid/CreditCardIcon";
 import React from "react";
-import { truncate } from "fs";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import MenuDashboardIcon from "@/assets/icons/menuDashboardIcon";
+import MenuTemplateIcon from "@/assets/icons/menuTemplateIcon";
+import MenuFilesIcon from '@/assets/icons/menuFilesIcon';
 export const items = [
   {
     external: false,
@@ -31,7 +16,7 @@ export const items = [
     path: "/",
     icon: (
       <SvgIcon fontSize="small">
-        <HomeIcon />
+        <MenuDashboardIcon />
       </SvgIcon>
     ),
   },
@@ -43,7 +28,7 @@ export const items = [
     path: "/Templates",
     icon: (
       <SvgIcon fontSize="small">
-        <ChartBarIcon />
+        <MenuTemplateIcon />
       </SvgIcon>
     ),
   },
@@ -54,7 +39,7 @@ export const items = [
     title: "Documents",
     icon: (
       <SvgIcon fontSize="small">
-        <NotificationAddIcon />
+        <MenuFilesIcon />
       </SvgIcon>
     ),
     children: [

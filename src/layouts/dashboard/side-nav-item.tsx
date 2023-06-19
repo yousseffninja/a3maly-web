@@ -40,7 +40,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
           pl: "16px",
           pr: "16px",
           py: "6px",
-          textAlign: "right",
+          textAlign: "left",
           gap: "10px",
           width: "100%",
           ...(active && {
@@ -119,8 +119,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                     pl: 4,
                     pr: "16px",
                     py: "6px",
-                    textAlign: "right",
-                    gap:"10px",
+                    textAlign: "left",
                     width: "100%",
                     ...(child.active && {
                       backgroundColor: "rgba(255, 255, 255, 0.04)",
@@ -141,7 +140,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                         display: "inline-flex",
                         fontSize: 8,
                         justifyContent: "center",
-                        mr: "27px",
+                        mr: 2,
                         ...(child.active && {
                           color: "primary.main",
                         }),
@@ -167,7 +166,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                         color: "grey.500",
                       }),
                       '&:hover':{
-                         marginRight: "5px",
+                         marginLeft: "5px",
                         textDecoration: "none",
                         transition: "all 0.3s",
                         color: "primary.main",

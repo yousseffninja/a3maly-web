@@ -34,7 +34,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
         },
         '& .simplebar-scrollbar:before': {
         },
-        direction: 'rtl',
+        direction: 'ltr',
         background: '#fff',
         color: '#000',
       }}
@@ -71,6 +71,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
             py: 3
           }}
         >
+          {/*<Typography>{t("Main list")}</Typography>*/}
           <Stack
             component="ul"
             spacing={0.5}
@@ -105,7 +106,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
   if (lgUp) {
     return (
       <Drawer
-        anchor="right"
+        anchor="left"
         open
         PaperProps={{
           sx: {
@@ -123,7 +124,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
 
   return (
     <Drawer
-      anchor="right"
+      anchor="left"
       onClose={onClose}
       open={open}
       PaperProps={{
