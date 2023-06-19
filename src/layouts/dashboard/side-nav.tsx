@@ -5,7 +5,8 @@ import {
   Box,
   Drawer,
   Stack,
-  useMediaQuery
+  useMediaQuery,
+  Typography
 } from '@mui/material';
 import React from 'react';
 import Logo from '../../assets/logo.png';
@@ -13,7 +14,9 @@ import { Scrollbar } from '@/components/scrollbar';
 import { items } from './config';
 import { SideNavItem } from './side-nav-item';
 import { Theme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 export const SideNav = (props: { open: any; onClose: any; }) => {
+  const {t}= useTranslation();
   const { open, onClose } = props;
   const pathname = usePathname();
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
@@ -65,7 +68,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
             py: 3
           }}
         >
-          {/*<Typography>{t("Main list")}</Typography>*/}
+          <Typography variant="subtitle2">{t("Main list")}</Typography>
           <Stack
             component="ul"
             spacing={0.5}
@@ -75,9 +78,25 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
               m: 0
             }}
           >
-            {items.map((item: any) => {
+            {items.map((item: any, i) => {
               const active = item.path ? (pathname === item.path) : false;
-
+              if (i === 3){
+                return(
+                  <>
+                    <Typography variant="subtitle2">{t("General settings")}</Typography>
+                    <SideNavItem
+                      active={active}
+                      disabled={item.disabled}
+                      external={item.external}
+                      icon={item.icon}
+                      key={item.title}
+                      path={item.path}
+                      title={item.title}
+                      items={item.children}
+                    />
+                  </>
+                )
+              }
               return (
                 <SideNavItem
                   active={active}
