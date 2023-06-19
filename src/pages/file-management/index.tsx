@@ -11,9 +11,36 @@ import {
 } from '@mui/material';
 import { SearchBar } from '@/sections/shared/search-bar';
 import { OfficesTable } from '@/sections/offices/offices-table';
+import { FileManagementTable } from '@/sections/file-management/file-management-table';
 const Page = () => {
   const {t}= useTranslation();
   const title = "File Management";
+  const items = [
+    {
+      fileName: "File 1",
+      workbook: "Workbook 1",
+      category: "Category 1",
+      wordNumber: 10,
+      language: "English",
+      created_at: "30-3-2001"
+    },
+    {
+      fileName: "File 2",
+      workbook: "Workbook 1",
+      category: "Category 1",
+      wordNumber: 10,
+      language: "English",
+      created_at: "30-3-2001"
+    },
+    {
+      fileName: "File 3",
+      workbook: "Workbook 1",
+      category: "Category 1",
+      wordNumber: 10,
+      language: "English",
+      created_at: "30-3-2001"
+    },
+  ]
   return (
     <>
       <Head>
@@ -39,9 +66,9 @@ const Page = () => {
               onSearchChange={() => null}
               placeholder={t(`Search`) + " "+ t(title)}
             />
-            <OfficesTable
-              count={0}
-              items={[]}
+            <FileManagementTable
+              count={3}
+              items={items}
               onDeselectAll={() => null}
               onDeselectOne={() => null}
               onPageChange={() => null}
@@ -49,7 +76,7 @@ const Page = () => {
               onSelectAll={() => null}
               onSelectOne={() => null}
               page={1}
-              rowsPerPage={1}
+              rowsPerPage={5}
               selected={[]}
             />
           </Stack>
