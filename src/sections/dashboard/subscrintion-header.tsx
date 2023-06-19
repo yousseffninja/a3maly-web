@@ -7,7 +7,7 @@ export const SubscrintionHeader = () => {
   const { t }= useTranslation();
   return (
     <>
-      <Box sx={{ bgcolor: "#FFFFFF", widht: "100%", display: "flex",  }}>
+      <Box sx={{ bgcolor: "#FFFFFF", widht: "100%", display: "flex", boxShadow: 3 }}>
         <Box sx={{ mr: 8, ml: 3, height: "110", display: 'flex', flexDirection: "column", justifyContent: "center" }}>
           <Typography variant="h5" sx={{ color: "#bab3b3" }}>{t("Your current subscription")}</Typography>
           <Typography variant="subtitle1">{t("a3maly plus")}</Typography>

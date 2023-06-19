@@ -14,7 +14,7 @@ export const ServiceList: React.FC<{ services: IService[] }> = ({ services }) =>
     <>
       <Box sx={{ display: "flex", flexWrap: 'wrap' }}>
         {services?.map((e) => (
-          <Box key={e.title} sx={{ ml: 3, mb: 2, px: 1.5, py: 2.5, width: 213, borderRadius: 1, display: "flex", justifyContent: "space-between", alignContent: 'center', bgcolor: "#ffffff" }}>
+          <Box key={e.title} sx={{ ml: 3, mb: 2, px: 1.5, py: 2.5, width: 213, boxShadow: 3, borderRadius: 1, display: "flex", justifyContent: "space-between", alignContent: 'center', bgcolor: "#ffffff" }}>
             <Box >
               <Typography variant="subtitle1">{t(e.title)}</Typography>
               <Typography variant="subtitle2">{e.count}</Typography>
