@@ -13,10 +13,14 @@ import {
 } from '@mui/material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-import AddCommentIcon from '@mui/icons-material/AddComment';
 import MessageIcon from '@mui/icons-material/Message';
-import CommentsDisabledIcon from '@mui/icons-material/CommentsDisabled';
-import EmailIcon from '@mui/icons-material/Email';
+import ServiceSeoIcon from '@/assets/icons/serviceSeoIcon';
+import ServiceBlogIcon from '@/assets/icons/serviceBlogIcon';
+import ServiceEmailIcon from '@/assets/icons/serviceEmailIcon';
+import ServiceAdsIcon from '@/assets/icons/serviceAdsIcon';
+import ServiceSmsIcon from '@/assets/icons/serviceSmsIcon';
+import ServiceSocialIcon from '@/assets/icons/serviceSocialIcon';
+import ServiceCommerceeIcon from '@/assets/icons/serviceCommerceeIcon';
 
 const Page = () => {
   const {t}= useTranslation();
@@ -41,56 +45,56 @@ const Page = () => {
       title: "Blog Post",
       subtitle: "sub 1",
       description: "Create a blog post",
-      icon: <AddCommentIcon sx={{ color: "#007bff" }} />,
+      icon: <ServiceSeoIcon />,
       favourite: true,
     },
     {
       title: "Email",
       subtitle: "sub 1",
       description: "Create an email Create an email Create an email Create an email Create an emailCreate an email Create an email Create an email",
-      icon: <MessageIcon sx={{color: "#007bff"}} />,
+      icon: <MessageIcon />,
       favourite: true,
     },
     {
       title: "Image",
       subtitle: "sub 1",
       description: "Create an image",
-      icon: <CommentsDisabledIcon sx={{color: "#007bff"}} />,
+      icon: <ServiceEmailIcon />,
       favourite: false,
     },
     {
       title: "Video",
       subtitle: "sub 1",
       description: "Create a video",
-      icon: <EmailIcon sx={{ color: "#B02A37"}} />,
+      icon: <ServiceAdsIcon/>,
       favourite: true,
     },
     {
       title: "Video",
       subtitle: "sub 1",
       description: "Create a video",
-      icon: <EmailIcon sx={{ color: "#B02A37"}} />,
+      icon: <ServiceSmsIcon />,
       favourite: true,
     },
     {
       title: "Video",
       subtitle: "sub 1",
       description: "Create a video",
-      icon: <AddCommentIcon sx={{color: "#007bff"}} />,
+      icon: <ServiceSocialIcon />,
       favourite: true,
     },
     {
       title: "Video",
       subtitle: "sub 1",
       description: "Create a video",
-      icon: <AddCommentIcon sx={{color: "#007bff"}} />,
+      icon: <ServiceCommerceeIcon />,
       favourite: true,
     },
     {
       title: "Video",
       subtitle: "sub 1",
       description: "Create a video",
-      icon: <AddCommentIcon sx={{color: "#007bff"}} />,
+      icon: <ServiceCommerceeIcon/>,
       favourite: false,
     }
   ]
@@ -156,10 +160,12 @@ const Page = () => {
                   // eslint-disable-next-line react/jsx-key
                   <Box sx={sxAlignmentBox}>
                     <Box>
-                      <Grid sx={{ display: "flex", justifyContent: "space-between", py: 1 }}>
-                        <SvgIcon fontSize="small" >
-                          {e.icon}
-                        </SvgIcon>
+                      <Grid sx={{ display: "flex", justifyContent: "space-between", py: 2, mx: 2 }}>
+                        <Box sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+                          <SvgIcon sx={{ width: 33, height: 33 }}>
+                            {e.icon}
+                          </SvgIcon>
+                        </Box>
                         <SvgIcon fontSize="small">
                           {e.favourite ? <StarIcon sx={{ color: "#FF9D00" }} /> : <StarBorderIcon sx={{ color: "#FF9D00" }} />}
                         </SvgIcon>
