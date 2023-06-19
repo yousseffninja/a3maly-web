@@ -11,7 +11,6 @@ import {
   Grid,
   SvgIcon, Divider
 } from '@mui/material';
-import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import AddCommentIcon from '@mui/icons-material/AddComment';
@@ -153,7 +152,7 @@ const Page = () => {
                 // }
                 //   }
               }}>
-                {card.map((e, i) => (
+                {card.map((e) => (
                   // eslint-disable-next-line react/jsx-key
                   <Box sx={sxAlignmentBox}>
                     <Box>

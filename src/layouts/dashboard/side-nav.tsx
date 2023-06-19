@@ -1,24 +1,18 @@
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
-import ArrowTopRightOnSquareIcon from '@heroicons/react/24/solid/ArrowTopRightOnSquareIcon';
-import ChevronUpDownIcon from '@heroicons/react/24/solid/ChevronUpDownIcon';
 import {
   Box,
-  Divider,
   Drawer,
   Stack,
-  SvgIcon,
-  Typography,
   useMediaQuery
 } from '@mui/material';
 import React from 'react';
 import Logo from '../../assets/logo.png';
-import { Scrollbar } from '../../components/scrollbar';
+import { Scrollbar } from '@/components/scrollbar';
 import { items } from './config';
 import { SideNavItem } from './side-nav-item';
 import { Theme } from '@mui/material';
-import Avatar from "@mui/material/Avatar";
 export const SideNav = (props: { open: any; onClose: any; }) => {
   const { open, onClose } = props;
   const pathname = usePathname();
@@ -81,7 +75,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
               m: 0
             }}
           >
-            {items.map((item: any, key) => {
+            {items.map((item: any) => {
               const active = item.path ? (pathname === item.path) : false;
 
               return (
