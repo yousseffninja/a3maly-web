@@ -7,6 +7,10 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import MenuDashboardIcon from "@/assets/icons/menuDashboardIcon";
 import MenuTemplateIcon from "@/assets/icons/menuTemplateIcon";
 import MenuFilesIcon from '@/assets/icons/menuFilesIcon';
+import MenuPackageIcon from '@/assets/icons/menuPackageIcon';
+import MenuContactIcon from '@/assets/icons/menuContactIcon';
+import MenuHelpIcon from '@/assets/icons/menuHelpIcon';
+import MenuSettingIcon from '@/assets/icons/menuSettingIcon';
 export const items = [
   {
     external: false,
@@ -36,60 +40,59 @@ export const items = [
     external: false,
     disabled: false,
     menu: false,
-    title: "Documents",
+    title: "File Management",
+    path: "/file-management",
     icon: (
       <SvgIcon fontSize="small">
         <MenuFilesIcon />
       </SvgIcon>
     ),
-    children: [
-      {
-        external: false,
-        disabled: false,
-        menu: false,
-        title: "All-Documents",
-        path: "/Documents/All-Documents",
-        icon: (
-          <SvgIcon fontSize="small">
-            <KeyboardDoubleArrowRightIcon />
-          </SvgIcon>
-        ),
-      },
-      {
-        external: false,
-        disabled: false,
-        menu: false,
-        title: "All Image",
-        path: "/Documents/All-Image",
-        icon: (
-          <SvgIcon fontSize="small">
-            <KeyboardDoubleArrowRightIcon />
-          </SvgIcon>
-        ),
-      },
-      {
-        external: false,
-        disabled: false,
-        menu: false,
-        title: "Workbooks",
-        path: "/Documents/Workbooks",
-        icon: (
-          <SvgIcon fontSize="small">
-            <KeyboardDoubleArrowRightIcon />
-          </SvgIcon>
-        ),
-      },
-    ],
   },
   {
     external: false,
     disabled: false,
     menu: false,
-    title: "AI Image",
-    path: "/AI-Image",
+    title: "Subscriptions",
+    path: "/subscriptions",
     icon: (
       <SvgIcon fontSize="medium">
-        <LocalShippingIcon />
+        <MenuPackageIcon />
+      </SvgIcon>
+    ),
+  },
+  {
+    external: false,
+    disabled: false,
+    menu: false,
+    title: "Settings",
+    path: "/settings",
+    icon: (
+      <SvgIcon fontSize="medium">
+        <MenuSettingIcon />
+      </SvgIcon>
+    ),
+  },
+  {
+    external: false,
+    disabled: false,
+    menu: false,
+    title: "Call us",
+    path: "/call-us",
+    icon: (
+      <SvgIcon fontSize="medium">
+        <MenuContactIcon />
+      </SvgIcon>
+    ),
+  },
+  {
+    external: false,
+    disabled: false,
+    menu: false,
+    title: "Help",
+    path: "/help",
+    icon: (
+      <SvgIcon fontSize="medium">
+        <MenuHelpIcon />
       </SvgIcon>
     ),
   },

@@ -13,7 +13,7 @@ import { SearchBar } from '@/sections/shared/search-bar';
 import { OfficesTable } from '@/sections/offices/offices-table';
 const Page = () => {
   const {t}= useTranslation();
-  const title = "All-Documents";
+  const title = "All-file-management";
   return (
     <>
       <Head>
