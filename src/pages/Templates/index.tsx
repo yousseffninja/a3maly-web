@@ -22,7 +22,7 @@ import EmailIcon from '@mui/icons-material/Email';
 const Page = () => {
   const {t}= useTranslation();
   const title = "Templates";
-  const tabs = ["All", "Blog", "Email", "Image", "Video", "Social Media", "Content", "Other"];
+  const tabs = ["All", "Blog", "Email", "advertisements", "messages", "SEO", "Social Media", "digital marketing"];
   const sxAlignmentBox = {
     width: "23%",
     p: 1,
@@ -130,7 +130,7 @@ const Page = () => {
                       transition: "background 1s, color 1s",
                     },
                   }} onClick={() => setSelectedTab(i)}>
-                    {e}
+                    {t(e)}
                   </Box>
                 ))}
               </Grid>
