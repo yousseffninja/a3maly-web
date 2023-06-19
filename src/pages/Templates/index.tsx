@@ -70,6 +70,13 @@ const Page = () => {
       title: "Video",
       subtitle: "sub 1",
       description: "Create a video",
+      icon: <EmailIcon sx={{ color: "#B02A37"}} />,
+      favourite: true,
+    },
+    {
+      title: "Video",
+      subtitle: "sub 1",
+      description: "Create a video",
       icon: <AddCommentIcon sx={{color: "#007bff"}} />,
       favourite: true,
     },
