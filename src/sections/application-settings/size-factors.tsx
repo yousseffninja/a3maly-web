@@ -1,16 +1,15 @@
 import { Box, Stack, Typography, Unstable_Grid2 as Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useTranslation } from "react-i18next";
-import { createSizes, intialSizes } from '../../utils/const-data';
+import { createSizes, intialSizes } from '@/utils/const-data';
 import InputAdornment from '@mui/material/InputAdornment';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import { IShippingOrderSettings } from '@/@types/shopping-order-settings';
 
 interface Props {
     small_package_per_km_cost: number | undefined,
     medium_package_per_km_cost: number | undefined,
     large_package_per_km_cost: number | undefined,
-    setShippingOrderSettings: React.Dispatch<React.SetStateAction<IShippingOrderSettings | undefined>>
+    setShippingOrderSettings: React.Dispatch<React.SetStateAction<undefined>>
 }
 const SizeFactors: React.FC<Props> = ({
     small_package_per_km_cost,

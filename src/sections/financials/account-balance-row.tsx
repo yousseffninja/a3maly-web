@@ -1,4 +1,3 @@
-import { IAccountBalance } from '@/@types/account-balance';
 import {
   TableRow,
   TableCell,
@@ -8,7 +7,7 @@ import {
 import { MenuButton } from '@/components/button-menu';
 
 type TAccountBalanceRowProps = {
-  accounts: IAccountBalance;
+  accounts: any;
   selected: string[];
   onSelectOne?: (id: string) => void;
   onDeselectOne?: (id: string) => void;

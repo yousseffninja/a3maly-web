@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ArrowRightIcon from '@heroicons/react/24/solid/ArrowRightIcon';
 import {
@@ -19,9 +19,7 @@ import {
 
 } from '@mui/material';
 import React from 'react';
-import { Scrollbar } from '../../components/scrollbar';
-import { SeverityPill } from '../../components/severity-pill';
-import { useOrder } from '@/hooks/use-orders';
+import { Scrollbar } from '@/components/scrollbar';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 
@@ -30,11 +28,10 @@ export const OverviewLatestOrders = (props: any) => {
 
   const router = useRouter();
   const {t}= useTranslation();
-  const orderContext = useOrder();
 
 
   const fetchLastOrder = async () => {
-    orderContext?.fetchOrders(0, 8)
+    return
   };
   
   useEffect(() => {
@@ -62,31 +59,7 @@ export const OverviewLatestOrders = (props: any) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orderContext?.orders.map((order: any) => {
-                const created_at = format(Date.parse(order.created_at), "dd/MM/yyyy");
 
-                return (
-                  <TableRow
-                    hover
-                    key={order?.id}
-                  >
-                     <TableCell>{order.number}</TableCell>
-                    <TableCell>
-                      {
-                        order.addresses.map((item:any, index:number) => {
-                          return <Typography key={index} >{t(item.type)}: {item.name}</Typography>
-                        })
-                      }
-                    </TableCell>
-                    <TableCell>
-                      {created_at}
-                    </TableCell>
-                    <TableCell>
-                    <span style={{color:`${order.status=="CANCELED"?'#fd4747':(order.status=="DELIVERED"?"rgb(75 216 40)":"none")}`}} >{t(order.status)}</span> 
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
             </TableBody>
           </Table>
         </Box>

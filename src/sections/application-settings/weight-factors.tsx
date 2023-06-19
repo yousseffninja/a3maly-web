@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { createWeights } from '../../utils/const-data';
 import InputAdornment from '@mui/material/InputAdornment';
 import PercentIcon from '@mui/icons-material/Percent';
-import { IShippingOrderSettings } from '@/@types/shopping-order-settings';
+
 
 const WeightFactors = ({
     light_package_per_km_cost_percentage_multiplier,

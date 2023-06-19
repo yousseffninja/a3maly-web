@@ -1,4 +1,3 @@
-import { IDriverBalance } from '@/@types/driver-balance';
 import {
   TableRow,
   TableCell,
@@ -9,7 +8,7 @@ import { MenuButton } from '@/components/button-menu';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 type TDriverBalanceProps = {
-  drivers: IDriverBalance;
+  drivers: any;
   selected: string[];
   onSelectOne?: (id: string) => void;
   onDeselectOne?: (id: string) => void;

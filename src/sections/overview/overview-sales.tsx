@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import React from 'react';
-import { Chart } from '../../components/chart';
+import { Chart } from '@/components/chart';
 
 const useChartOptions = () => {
   const theme = useTheme();

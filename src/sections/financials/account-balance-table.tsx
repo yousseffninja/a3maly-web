@@ -1,16 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import {
   Card,
-  Avatar,
-  Typography, CardHeader, Divider, CardContent, Unstable_Grid2 as Grid, Stack
+  CardHeader, Divider, CardContent, Unstable_Grid2 as Grid, Stack
 } from '@mui/material';
-import { Scrollbar } from '@/components/scrollbar';
-import CogIcon from '@heroicons/react/24/solid/CogIcon';
-import { AccountBalanceRow } from '@/sections/financials/account-balance-row';
-import { IndexedList } from '@/components/indexed-list';
 import React from 'react';
 import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
 

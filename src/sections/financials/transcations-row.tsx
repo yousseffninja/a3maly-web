@@ -1,5 +1,3 @@
-import { ITransactions } from '@/@types/transcations';
-
 import {
   TableRow,
   TableCell,
@@ -11,7 +9,7 @@ import React from 'react';
 import { MenuButton } from '@/components/button-menu';
 
 type TTransactionsRowProps = {
-  transaction: ITransactions;
+  transaction: any;
   selected: string[];
   onSelectOne?: (id: string) => void;
   onDeselectOne?: (id: string) => void;

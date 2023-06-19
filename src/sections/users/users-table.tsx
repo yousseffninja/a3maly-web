@@ -16,9 +16,9 @@ import {
   TableRow,
   Typography
 } from '@mui/material';
-import React, { useState } from 'react';
-import { Scrollbar } from '../../components/scrollbar';
-import { getInitials } from '../../utils/get-initials';
+import React from 'react';
+import { Scrollbar } from '@/components/scrollbar';
+import { getInitials } from '@/utils/get-initials';
 import CogIcon from '@heroicons/react/24/solid/CogIcon';
 import { MenuButton } from '@/components/button-menu';
 import { useRouter } from 'next/router';

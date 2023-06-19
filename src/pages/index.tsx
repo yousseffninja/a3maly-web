@@ -3,11 +3,10 @@ import {
   Box,
   Container,
   Typography,
-  Grid, Stack
+  Stack
 } from '@mui/material';
 import React from 'react';
-import { DashboardLayout } from '../layouts/dashboard/layout';
-import OrderContextProvider from '@/contexts/order-context';
+import { DashboardLayout } from '@/layouts/dashboard/layout';
 
 import { useTranslation } from 'react-i18next';
 

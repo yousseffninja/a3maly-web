@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { useAuthContext } from '../contexts/auth-context';
+import { useAuthContext } from '@/contexts/auth-context';
 
 export const AuthGuard = (props: { children: any; }) => {
   const { children } = props;

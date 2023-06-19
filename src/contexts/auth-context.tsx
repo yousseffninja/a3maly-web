@@ -1,78 +1,85 @@
-import { createContext, useContext, useEffect, useReducer, useRef } from 'react';
-import PropTypes from 'prop-types';
-import React from 'react';
-import axiosClient from '../configs/axios-client'
+import { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import React from "react";
+import axiosClient from "../configs/axios-client";
+import { UserType } from "@/@types/auth-user";
 
-type UserType = {
-  id: string,
-  username: string,
-  name: string,
-  avatar: string
-};
 
-type ActionType = { type: string, payload: any }
+type ActionType = { type: string; payload: any };
 
 const HANDLERS = {
-  INITIALIZE: 'INITIALIZE',
-  SIGN_IN: 'SIGN_IN',
-  SIGN_OUT: 'SIGN_OUT'
+  INITIALIZE: "INITIALIZE",
+  SIGN_IN: "SIGN_IN",
+  SIGN_OUT: "SIGN_OUT",
+  CHANGE_INFO: "CHANGE_INFO",
 };
 
 type initialValue = {
-  isAuthenticated: boolean,
-  isLoading: boolean,
-  user: any,
-  signIn: (username: string, password: string) => Promise<void>,
-  signOut: () => Promise<void>,
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  user: any;
+  signIn: (username: string, password: string) => Promise<void>;
+  signOut: () => Promise<void>;
+  uploadImg: (file:any) => void;
+  uploadLogo: (file:any) => void;
+  updateInfo: (body:any) => Promise<boolean>;
+  updateOfficeInfo: (body:any) => Promise<boolean>;
+  updateEmail: (formData:any) => Promise<boolean>;
+  changePassword: (old_password: string, new_password: string) => Promise<boolean>;
 };
 
 const initialState = {
   isAuthenticated: false,
   isLoading: true,
-  user: null
+  user: null,
 };
 
 const handlers = {
-  [HANDLERS.INITIALIZE]: (state: any, action: { payload: any; }) => {
+  [HANDLERS.INITIALIZE]: (state: any, action: { payload: any }) => {
     const user = action.payload;
 
     return {
       ...state,
-      ...(
-        // if payload (user) is provided, then is authenticated
-        user
-          ? ({
+      ...// if payload (user) is provided, then is authenticated
+        (user
+          ? {
             isAuthenticated: true,
             isLoading: false,
-            user
-          })
-          : ({
-            isLoading: false
-          })
-      )
+            user,
+          }
+          : {
+            isLoading: false,
+          }),
     };
   },
-  [HANDLERS.SIGN_IN]: (state: any, action: { payload: any; }) => {
+  [HANDLERS.CHANGE_INFO]: (state: any, action: { payload: any }) => {
+    const user = action.payload;
+    return {
+      ...state,
+      isAuthenticated: true,
+      user,
+    };
+  },
+  [HANDLERS.SIGN_IN]: (state: any, action: { payload: any }) => {
     const user = action.payload;
 
     return {
       ...state,
       isAuthenticated: true,
-      user
+      user,
     };
   },
   [HANDLERS.SIGN_OUT]: (state: any) => {
     return {
       ...state,
       isAuthenticated: false,
-      user: null
+      user: null,
     };
-  }
+  },
 };
 
-const reducer = (state: any, action: ActionType) => (
-  handlers[action.type] ? handlers[action.type](state, action) : state
-);
+const reducer = (state: any, action: ActionType) =>
+  handlers[action.type] ? handlers[action.type](state, action) : state;
 
 // The role of this context is to propagate authentication state through the App tree.
 
@@ -81,6 +88,7 @@ export const AuthContext = createContext<initialValue | undefined>(undefined);
 
 export const AuthProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [authUser, setAuthUser] = useState<UserType | null>(null);
   const initialized = useRef(false);
 
   const initialize = async () => {
@@ -94,73 +102,206 @@ export const AuthProvider = ({ children }: any) => {
     let isAuthenticated = false;
 
     try {
-      isAuthenticated = window.sessionStorage.getItem('authenticated') === 'true';
+      isAuthenticated = window.sessionStorage.getItem("authenticated") === "true";
     } catch (err) {
       console.error(err);
     }
 
     if (isAuthenticated) {
-      const user: UserType = state.user;
-        console.log(state.user);
+      //todo get user from session
+      const storageItem = sessionStorage.getItem("user");
+      if (storageItem) {
+        const user: UserType = JSON.parse(storageItem) as UserType;
+        setAuthUser(user);
+        dispatch({
+          type: HANDLERS.INITIALIZE,
+          payload: user,
+        });
+      }
+    }
+    dispatch({
+      type: HANDLERS.INITIALIZE,
+      payload: null,
+    });
+  };
+
+  useEffect(() => {
+    initialize();
+  }, []);
+  const hasRoles = (roles: string[] | undefined): boolean => {
+    //todo check roles in backend
+    // return authUser == null? false : authUser.roles.includes(role);
+    if (!authUser) return false;
+    if (!roles) return false;
+    if (authUser.roles == undefined) return false;
+    let hasRole = false;
+    authUser.roles.forEach((role) => {
+      if (roles.includes(role)) {
+        hasRole = true;
+      }
+    });
+    return hasRole;
+  };
+
+  const changePassword = async (old_password: string, new_password: string) => {
+    try {
+      const res = await axiosClient.post("/auth/change-password", { old_password, new_password });
+      window.sessionStorage.setItem("user", JSON.stringify(res.data.data));
+      setAuthUser(res.data.data);
       dispatch({
-        type: HANDLERS.INITIALIZE,
-        payload: user
+        type: HANDLERS.CHANGE_INFO,
+        payload: res.data.data,
       });
-    } else {
-      dispatch({
-        type: HANDLERS.INITIALIZE,
-        payload: null
-      });
+      return true;
+
+    }catch (error: any) {
+      return error.response;
     }
   };
 
-  useEffect(
-    () => {
-      initialize();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
+  const updateInfo = async (body: any) => {
+    try {
+      const res = await axiosClient.put("/auth/change-info", body);
+      console.log(res)
+      if (res.status == 201 || res.status == 200) {
+        window.sessionStorage.setItem("user", JSON.stringify(res.data.data));
+        setAuthUser(res.data.data);
+        dispatch({
+          type: HANDLERS.CHANGE_INFO,
+          payload: res.data.data,
+        });
+        return true;
+      }
+    } catch (error: any) {
+      return error.response;
+    }
+  };
+  const updateOfficeInfo = async (body: any) => {
+    try {
+      const res = await axiosClient.put("/profile/update-info", body);
+      console.log(res);
+      if (res.status == 201 || res.status == 200) {
+        if(authUser){
+          window.sessionStorage.setItem("user", JSON.stringify(authUser));
+          setAuthUser(authUser);
+        }
+        dispatch({
+          type: HANDLERS.CHANGE_INFO,
+          payload: authUser,
+        });
+        return true;
+      }
+    } catch (error: any) {
+      return error.response;
+    }
+  };
+  const updateEmail = async (user: UserType) => {
+    try {
+      const res = await axiosClient.put("/profile/update-email", {
+        email: user.email,
+      });
+      if (res.status == 201 || res.status == 200) {
+        window.sessionStorage.setItem("user", JSON.stringify(res.data.data));
+        setAuthUser(res.data.data);
+        dispatch({
+          type: HANDLERS.CHANGE_INFO,
+          payload: res.data.data,
+        });
+        return true;
+      }
+    } catch (error: any) {
+      return error.response;
+    }
+  };
+
+  const uploadImg = async (file:any) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatarFile', file,file.name);
+      const res = await axiosClient.post('/profile/update-avatar',formData);
+      if (res.status == 201 || res.status == 200) {
+        window.sessionStorage.setItem("user", JSON.stringify(res.data.data));
+        setAuthUser(res.data.data);
+        dispatch({
+          type: HANDLERS.CHANGE_INFO,
+          payload: res.data.data,
+        });
+        return res.data.data;
+      } else {
+        // Avatar upload failed
+        console.error('Avatar upload failed');
+      }
+    } catch (error) {
+      console.error('An error occurred during avatar upload', error);
+    }
+  }
+  const uploadLogo = async (file:any) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatarFile', file,file.name);
+      const res = await axiosClient.post('/profile/update-logo',formData);
+      if (res.status == 201 || res.status == 200) {
+        window.sessionStorage.setItem("user", JSON.stringify(res.data.data));
+        setAuthUser(res.data.data);
+        dispatch({
+          type: HANDLERS.CHANGE_INFO,
+          payload: res.data.data,
+        });
+        return res.data.data;
+      } else {
+        // Avatar upload failed
+        console.error('Avatar upload failed');
+      }
+    } catch (error) {
+      console.error('An error occurred during avatar upload', error);
+    }
+  }
 
   const signIn = async (username: string, password: string) => {
-    const user: {id:string, avatar: string, name: string, username:string} = {
-      id: '',
-      avatar: '',
-      name: '',
-      username: ''
-      };
-    const res = await axiosClient.post('/auth/signin', { username, password });
+    const res = await axiosClient.post("/auth/signin", { username, password });
 
-    if(res.status ==200){
+    if (res.status == 200) {
       const { data } = res.data;
-      window.sessionStorage.setItem('authenticated', 'true');
-      window.sessionStorage.setItem('token', data.access_token);
-      axiosClient.defaults.headers.common['Authorization'] = `Bearer ${data.access_token}`;
-      user.id = data.id;
-      user.avatar = data.avatar;
-      user.name = data.name;
-      user.username = data.username;
+      const user: UserType = {
+        id: data.id,
+        name: data.fullname,
+        username: data.username,
+        email: data.email,
+        account: data.account,
+        roles: data.roles,
+        phone: data.phone,
+        avatar: data.avatar,
+      };
+      window.sessionStorage.setItem("authenticated", "true");
+      window.sessionStorage.setItem("token", data.access_token);
+      window.sessionStorage.setItem("user", JSON.stringify(user));
+      axiosClient.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
+      setAuthUser(user);
+      dispatch({
+        type: HANDLERS.SIGN_IN,
+        payload: user,
+      });
+    } else {
+      throw new Error("Please check your username and password");
     }
-    else {
-      throw new Error('Please check your username and password');
-    }
+  };
 
+  const signOut = () => {
+    window.sessionStorage.setItem("authenticated", "false");
+    window.sessionStorage.removeItem("token");
+    window.sessionStorage.removeItem("user");
+    setAuthUser(null);
+    axiosClient.defaults.headers.common["Authorization"] = `Bearer `;
     dispatch({
-      type: HANDLERS.SIGN_IN,
-      payload: user
+      type: HANDLERS.SIGN_OUT,
+      payload: null,
     });
   };
 
   const signUp = async (username: any, name: any, password: any) => {
-    throw new Error('Sign up is not implemented');
+    throw new Error("Sign up is not implemented");
   };
 
-  const signOut = () => {
-    dispatch({
-      type: HANDLERS.SIGN_OUT,
-      payload: null
-    });
-  };
 
   return (
     <AuthContext.Provider
@@ -168,7 +309,13 @@ export const AuthProvider = ({ children }: any) => {
         ...state,
         signIn,
         signUp,
-        signOut
+        signOut,
+        uploadImg,
+        uploadLogo,
+        updateInfo,
+        updateOfficeInfo,
+        updateEmail,
+        changePassword
       }}
     >
       {children}
@@ -177,7 +324,7 @@ export const AuthProvider = ({ children }: any) => {
 };
 
 AuthProvider.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export const AuthConsumer = AuthContext.Consumer;

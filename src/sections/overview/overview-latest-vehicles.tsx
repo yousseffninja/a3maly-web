@@ -1,7 +1,6 @@
-import { formatDistanceToNow } from 'date-fns';
 import PropTypes from 'prop-types';
 import ArrowRightIcon from '@heroicons/react/24/solid/ArrowRightIcon';
-import EllipsisVerticalIcon from '@heroicons/react/24/solid/EllipsisVerticalIcon';
+
 import {
   Box,
   Button,
@@ -9,7 +8,6 @@ import {
   CardActions,
   CardHeader,
   Divider,
-  IconButton,
   List,
   ListItem,
   ListItemAvatar,
@@ -17,20 +15,17 @@ import {
   SvgIcon
 } from '@mui/material';
 import React from 'react';
-import getTimeElapsedString from '@/utils/getTimeElapsedString'; 
 import { useTranslation } from "react-i18next";
-import { useVehicle } from "@/hooks/use-vehicles";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export const OverviewLatestVehicles = (props: any) => {
   const { products = [], sx } = props;
   const { t } = useTranslation();
     const router = useRouter();
-    const vehicleContext = useVehicle();
 
     const fetchLastVehicles = async () => {
-      vehicleContext?.fetchUnverifiedVehicles(0,6)
+      return
     };
     
     useEffect(() => {
@@ -50,48 +45,7 @@ export const OverviewLatestVehicles = (props: any) => {
     <Card sx={sx}>
       <CardHeader title={t("Latest Vehicles Requests")} />
       <List>
-        {vehicleContext?.unverifiedVehicles.sort((a: IData, b: IData) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()).map((vehicle: any, index: number) => {
-          const ago = getTimeElapsedString(vehicle.created_at);
 
-          return (
-            <ListItem
-              key={vehicle.id}
-            >
-              <ListItemAvatar>
-                {
-                 vehicle?.__images__[0]
-                    ? (
-                      <Box
-                        component="img"
-                        src={"https://pronto.zbony.com/v1/" + vehicle?.__images__[0]?.image}
-                        sx={{
-                          borderRadius: 1,
-                          height: 48,
-                          width: 48
-                        }}
-                      />
-                    )
-                    : (
-                      <Box
-                        sx={{
-                          borderRadius: 1,
-                          backgroundColor: 'grey.200',
-                          height: 48,
-                          width: 48
-                        }}
-                      />
-                    )
-                }
-              </ListItemAvatar>
-              <ListItemText
-                primary={`${vehicle.__brand__.name} (${vehicle?.__brand_model__?.name})`}
-                primaryTypographyProps={{ variant: 'subtitle1' }}
-                secondary={` ${ago}`}
-                secondaryTypographyProps={{ variant: 'body2' }}
-              />
-            </ListItem>
-          );
-        })}
       </List>
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end', alignItems:'end' }}>

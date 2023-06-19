@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import {
-  Avatar,
   Box,
   Card,
   Checkbox,
-  Stack,
   SvgIcon,
-  Switch,
   Table,
   TableBody,
   TableCell,
@@ -17,18 +14,14 @@ import {
   Typography, Button
 } from '@mui/material';
 import React, { useState } from 'react';
-import { Scrollbar } from '../../components/scrollbar';
-import { getInitials } from '../../utils/get-initials';
+import { Scrollbar } from '@/components/scrollbar';
 import CogIcon from '@heroicons/react/24/solid/CogIcon';
 import { MenuButton } from '@/components/button-menu';
 import { useRouter } from 'next/router';
 import {useTranslation} from 'react-i18next';
 import ConfirmationPopup from '@/components/confirmation-popup';
-import { OrderContext } from '@/contexts/order-context';
-import { useOrder } from '@/hooks/use-orders';
 
 export const OrdersTable = (props: any) => {
-  const context = useOrder()
   const router = useRouter();
   const {
     count,
@@ -53,9 +46,7 @@ export const OrdersTable = (props: any) => {
   const selectedAll = items?(items.length > 0) && selected.length === items.length: false;
 
   const cancelOrder = async () => {
-    await context?.cancelOrder(selectedOrder.id);
-    setOpen(false)
-    setSelectedOrder("")
+    return
   }
 
   return (

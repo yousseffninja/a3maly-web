@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import {
   Avatar,
   Button,
@@ -15,9 +14,7 @@ import {
 import React from 'react';
 import { IndexedList } from '@/components/indexed-list';
 import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from "@mui/icons-material/Email";
 import FaceIcon from "@mui/icons-material/Face";
-import TranslateIcon from "@mui/icons-material/Translate";
 import MapIcon from '@mui/icons-material/Map';
 import PropTypes from "prop-types";
 

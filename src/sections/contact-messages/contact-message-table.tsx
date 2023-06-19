@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 import {
   Avatar,
   Box,
-  Button,
   Card,
   Checkbox,
   Stack,
@@ -16,16 +15,14 @@ import {
   TableRow,
   Typography
 } from '@mui/material';
-import React, { useState } from 'react';
-import { Scrollbar } from '../../components/scrollbar';
-import { getInitials } from '../../utils/get-initials';
+import React from 'react';
+import { Scrollbar } from '@/components/scrollbar';
+import { getInitials } from '@/utils/get-initials';
 import CogIcon from '@heroicons/react/24/solid/CogIcon';
-import DeleteIcon from '@mui/icons-material/Delete'
 import { MenuButton } from '@/components/button-menu';
 import {useTranslation} from 'react-i18next';
 import { useRouter } from 'next/router';
 import ContactMessageDialog from './contact-message-dialog';
-import { IContactMessage } from '@/@types/contact-message';
 export const ContactMessagesTable = (props: any) => {
   const router = useRouter();
   const {
@@ -47,7 +44,7 @@ export const ContactMessagesTable = (props: any) => {
 
   const selectedSome = (selected.length > 0) && (selected.length < items.length);
   const selectedAll = items?(items.length > 0) && selected.length === items.length: false;
-  const [selectedItem , setSelectedItem] = React.useState<IContactMessage>({} as IContactMessage);
+  const [selectedItem , setSelectedItem] = React.useState<any>(null);
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {

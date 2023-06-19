@@ -3,9 +3,8 @@ import { Card, InputAdornment, OutlinedInput, SvgIcon } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { Box, Button, Menu, MenuItem, Typography } from '@mui/material';
+import { Button, Menu, MenuItem } from '@mui/material';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
-import { useState } from 'react';
 interface Option {
   key: string;
   value: string;
