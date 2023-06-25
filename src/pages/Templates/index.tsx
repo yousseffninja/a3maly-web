@@ -15,15 +15,17 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import MessageIcon from '@mui/icons-material/Message';
 import ServiceSeoIcon from '@/assets/icons/serviceSeoIcon';
-import ServiceBlogIcon from '@/assets/icons/serviceBlogIcon';
 import ServiceEmailIcon from '@/assets/icons/serviceEmailIcon';
 import ServiceAdsIcon from '@/assets/icons/serviceAdsIcon';
 import ServiceSmsIcon from '@/assets/icons/serviceSmsIcon';
 import ServiceSocialIcon from '@/assets/icons/serviceSocialIcon';
 import ServiceCommerceeIcon from '@/assets/icons/serviceCommerceeIcon';
 
+const { useRouter } = require('next/navigation');
+
 const Page = () => {
   const {t}= useTranslation();
+  const router = useRouter();
   const title = "Templates";
   const tabs = ["All", "Blog", "Email", "advertisements", "messages", "SEO", "Social Media", "digital marketing"];
   const sxAlignmentBox = {
@@ -101,6 +103,10 @@ const Page = () => {
 
   const [selectedTab, setSelectedTab] = useState(0);
 
+  const OnClickHandler = (id: string) => {
+    router.push(`/Templates/${id}`);
+  }
+
   return (
     <>
       <Head>
@@ -160,22 +166,18 @@ const Page = () => {
                   // eslint-disable-next-line react/jsx-key
                   <Box sx={sxAlignmentBox}>
                     <Box>
-                      <Grid sx={{ display: "flex", justifyContent: "space-between", py: 2, mx: 2 }}>
+                      <Grid sx={{ display: "flex", justifyContent: "space-between", py: 2 }}>
                         <Box sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-                          <SvgIcon sx={{ width: 33, height: 33 }}>
-                            {e.icon}
-                          </SvgIcon>
+                          {e.icon}
                         </Box>
-                        <SvgIcon fontSize="small">
-                          {e.favourite ? <StarIcon sx={{ color: "#FF9D00" }} /> : <StarBorderIcon sx={{ color: "#FF9D00" }} />}
-                        </SvgIcon>
+                        {e.favourite ? <StarIcon sx={{ color: "#FF9D00" }} /> : <StarBorderIcon sx={{ color: "#FF9D00" }} />}
                       </Grid>
                       <Typography variant="h5" sx={{ pb: 0.2 }}>{e.title}</Typography>
                       <Typography variant="body2" sx={{ pb: 0.2 }}>{e.subtitle}</Typography>
                       <Divider variant="middle" sx={{ mb: .02 }} />
                       <Typography variant="subtitle2">{e.description}</Typography>
                     </Box>
-                    <Button sx={{ bgcolor: "#ffffff", color: "#000000" }}>Create</Button>
+                    <Button sx={{ bgcolor: "#ffffff", color: "#000000" }} onClick={() => OnClickHandler(e.title)}>Create</Button>
                   </Box>
                 ))}
               </Grid>
