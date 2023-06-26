@@ -121,7 +121,7 @@ const Page = () => {
         <Stack spacing={3}>
           <Stack direction="row" justifyContent="space-between" spacing={4}>
             <Stack spacing={1}>
-              <Typography variant="h4">{t(title)}</Typography>
+              <Typography variant="h4" sx={{ fontFamily: 'A Jannat LT', }}>{t(title)}</Typography>
             </Stack>
           </Stack>
           <SubscrintionHeader />
@@ -129,10 +129,10 @@ const Page = () => {
           <Box sx={{ bgcolor: "#ffffff" }}>
             <Box sx={{ display: "flex", justifyContent: "space-between", px: 2, mt: 2 }}>
               <Box sx={{ display: "flex" }}>
-                <Typography variant="h6">{t("your favorite models")} </Typography>
-                <Typography sx={{ color: "#00CDE7", ml: 2 }}>{bestTemplates.count}</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'A Jannat LT', }}>{t("your favorite models")} </Typography>
+                <Typography sx={{ color: "#00CDE7", ml: 2, fontFamily: 'A Jannat LT', }}>{bestTemplates.count}</Typography>
               </Box>
-              <Typography variant="h6" sx={{ color: "#00CDE7" }}>{t("More")}</Typography>
+              <Typography variant="h6" sx={{ color: "#00CDE7", fontFamily: 'A Jannat LT', }}>{t("More")}</Typography>
             </Box>
             <FavouriteTemplateList bestTemplates={bestTemplates} />
           </Box>

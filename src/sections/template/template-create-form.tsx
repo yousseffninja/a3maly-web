@@ -35,8 +35,8 @@ export const TemplateCreateForm = (props: any) => {
         <Grid sx={{ display: "flex", flexDirection: "row", alignContent: "center" }} >
           <ServiceSeoIcon />
           <Grid>
-            <Typography variant="h5" sx={{ mx: 2}}>{t(Id)}</Typography>
-            <Typography variant="subtitle2" sx={{ mx: 2}}>sub</Typography>
+            <Typography variant="h5" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 700}}>{t(Id)}</Typography>
+            <Typography variant="subtitle2" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 400}}>{t(Id)}</Typography>
           </Grid>
         </Grid>
         <Grid>
@@ -44,7 +44,7 @@ export const TemplateCreateForm = (props: any) => {
         </Grid>
       </Grid>
       <Grid sx={{ mx: 2, display: "flex", justifyContent: "center" }}>
-        <Typography variant="subtitle2" sx={{ mx: 2}}>لا أحد يريد قراءة عناوين المدونات المملة ، وإنشاء عناوين مدونة جذابة باستخدام هذه الأداة</Typography>
+        <Typography variant="subtitle2" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 400}}>لا أحد يريد قراءة عناوين المدونات المملة ، وإنشاء عناوين مدونة جذابة باستخدام هذه الأداة</Typography>
       </Grid>
       <Divider variant="middle" sx={{ my: 4 }} />
       <Grid>
@@ -53,7 +53,7 @@ export const TemplateCreateForm = (props: any) => {
           onSubmit={onSubmit}
         >
           <Grid sx={{ px: 2 , mb: 2 }}>
-            <Typography variant="h6" sx={{ mx: 2}}>{t('Language')}</Typography>
+            <Typography variant="h6" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, mb: 2}}>{t('Language')}</Typography>
             <Select
               sx={{ width: "100%" }}
               name="language"
@@ -70,7 +70,7 @@ export const TemplateCreateForm = (props: any) => {
             </Select>
           </Grid>
           <Grid sx={{ px: 2 , mb: 2 }} >
-            <Typography variant="h6" sx={{ mx: 2}}>{t('What is the theme of your theme is about?')}</Typography>
+            <Typography variant="h6" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, mb: 2}}>{t('What is the theme of your theme is about?')}</Typography>
             <TextField
               fullWidth
               label={t('a description . . .')}
@@ -82,7 +82,7 @@ export const TemplateCreateForm = (props: any) => {
             />
           </Grid>
           <Grid sx={{ px: 2 , mb: 2 }}>
-            <Typography variant="h6" sx={{ mx: 2}}>{t('creativity level')}</Typography>
+            <Typography variant="h6" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, mb: 2}}>{t('creativity level')}</Typography>
             <Select
               sx={{ width: "100%" }}
               name="creativityLevel"
@@ -98,7 +98,7 @@ export const TemplateCreateForm = (props: any) => {
           </Grid>
           <Grid sx={{ px: 2 , mb: 2, display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <Grid sx={{ width: "100%", mr: 2  }} >
-              <Typography variant="h6" sx={{ mx: 2}}>{t('The number of results')}</Typography>
+              <Typography variant="h6" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, mb: 2}}>{t('The number of results')}</Typography>
               <Select
                 sx={{ width: "100%" }}
                 name="results"
@@ -113,7 +113,7 @@ export const TemplateCreateForm = (props: any) => {
               </Select>
             </Grid>
             <Grid sx={{ width: "100%", ml: 2 }}>
-              <Typography variant="h6" sx={{ mx: 2}}>{t('The maximum length of the result')}</Typography>
+              <Typography variant="h6" sx={{ mx: 2, fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, mb: 2}}>{t('The maximum length of the result')}</Typography>
               <Select
                 sx={{ width: "100%" }}
                 name="length"
@@ -130,7 +130,7 @@ export const TemplateCreateForm = (props: any) => {
           </Grid>
           <Grid sx={{ px: 2 , mb: 2 }} >
             <Button sx={{ width: "100%", bgcolor: "#00314C" }} type="submit">
-              <Typography variant="h6" sx={{ my: 1, color: "#ffffff"}}>{t('create')}</Typography>
+              <Typography variant="h6" sx={{ my: 1, color: "#ffffff", fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 700, }}>{t('create')}</Typography>
             </Button>
           </Grid>
         </form>

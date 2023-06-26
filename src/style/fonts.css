@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'A Jannat LT';
+  font-style: normal;
+  src: local('A Jannat LT Bold'), local('AJannatLT-Bold'),
+    url('alfont_com_AAJannatLT-.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'A Jannat LT';
+  font-style: normal;
+  src: local('A Jannat LT Bold'), local('AJannatLT-Bold'),
+  url('alfont_com_AAJannatLT-.ttf') format('truetype');
+}

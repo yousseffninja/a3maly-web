@@ -6,7 +6,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
-  TableBody, SvgIcon, TablePagination
+  TableBody, SvgIcon, TablePagination, Typography
 } from '@mui/material';
 import React from 'react';
 
@@ -33,11 +33,11 @@ export const PaymentTable = (props: any) => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>{t('Subtype')}</TableCell>
-                <TableCell>{t('The price of registration')}</TableCell>
-                <TableCell>{t('subscription status')}</TableCell>
-                <TableCell>{t('Subscription start')}</TableCell>
-                <TableCell>{t('at the end of the subscription')}</TableCell>
+                <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', }}>{t('Subtype')}</Typography></TableCell>
+                <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', }}>{t('The price of registration')}</Typography> </TableCell>
+                <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', }}>{t('subscription status')}</Typography> </TableCell>
+                <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', }}>{t('Subscription start')}</Typography> </TableCell>
+                <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', }}>{t('at the end of the subscription')}</Typography> </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
