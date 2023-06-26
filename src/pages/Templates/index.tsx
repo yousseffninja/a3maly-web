@@ -172,12 +172,12 @@ const Page = () => {
                         </Box>
                         {e.favourite ? <StarIcon sx={{ color: "#FF9D00" }} /> : <StarBorderIcon sx={{ color: "#FF9D00" }} />}
                       </Grid>
-                      <Typography variant="h5" sx={{ pb: 0.2 }}>{e.title}</Typography>
-                      <Typography variant="body2" sx={{ pb: 0.2 }}>{e.subtitle}</Typography>
+                      <Typography variant="h6" sx={{ pb: 0.2 }}>{t(e.title)}</Typography>
+                      <Typography variant="body2" sx={{ pb: 0.2 }}>{t(e.subtitle)}</Typography>
                       <Divider variant="middle" sx={{ mb: .02 }} />
-                      <Typography variant="subtitle2">{e.description}</Typography>
+                      <Typography variant="subtitle2">{t(e.description)}</Typography>
                     </Box>
-                    <Button sx={{ bgcolor: "#ffffff", color: "#000000" }} onClick={() => OnClickHandler(e.title)}>Create</Button>
+                    <Button sx={{ bgcolor: "#ffffff", color: "#000000" }} onClick={() => OnClickHandler(e.title)}>{t('create')}</Button>
                   </Box>
                 ))}
               </Grid>

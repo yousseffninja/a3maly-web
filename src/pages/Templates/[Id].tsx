@@ -7,7 +7,7 @@ import {
   Select,
   MenuItem,
   TextField,
-  Button,
+  Button, Box
 } from '@mui/material';
 import { useRouter } from 'next/router';
 
@@ -16,6 +16,11 @@ import ServiceSeoIcon from '@/assets/icons/serviceSeoIcon';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { TemplateCreateForm } from '@/sections/template/template-create-form';
+import PdfIcon from '@/assets/icons/pdfIcon';
+import DocIcon from '@/assets/icons/docIcon';
+import TextIcon from '@/assets/icons/textIcon';
+import CopyIcon from '@/assets/icons/copyIcon';
 
 const Page = () => {
   const router = useRouter();
@@ -36,6 +41,7 @@ const Page = () => {
   const levels = ["normal", "medium", "creative", "very creative"];
   const results = [1, 5 ,10, 15, 20, 25, 30];
   const lengths = [10, 100, 500, 10000, 50000];
+  const workbooks = ["workbook 1", "workbook 2", "workbook 3"];
 
   const formik = useFormik({
     initialValues: {
@@ -44,7 +50,9 @@ const Page = () => {
       language: 'Arabic',
       results: 1,
       length: 10,
-      submit: null
+      fileName: '',
+      workbook: 'workbook 1',
+      submit: null,
     },
     validationSchema: Yup.object({
       description: Yup
@@ -62,6 +70,12 @@ const Page = () => {
         .string()
         .max(255)
         .required('results is required'),
+      fileName: Yup
+        .string()
+        .max(255),
+      workbook: Yup
+        .string()
+        .max(255),
       length: Yup
         .string()
         .max(255)
@@ -83,112 +97,67 @@ const Page = () => {
     <>
     <Grid sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", my: 2 }}>
       <Grid sx={{ bgcolor: "#ffffff", width: "35%", borderRadius: 1 }}>
-        <Grid sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", my: 4, px: 2 }} >
-          <Grid sx={{ display: "flex", flexDirection: "row", alignContent: "center" }} >
-            <ServiceSeoIcon />
-            <Grid>
-              <Typography variant="h5" sx={{ mx: 2}}>{Id}</Typography>
-              <Typography variant="subtitle2" sx={{ mx: 2}}>sub</Typography>
-            </Grid>
-          </Grid>
-          <Grid>
-              <StarIcon sx={{ color: "#FF9D00" }} />
-          </Grid>
-        </Grid>
-        <Grid sx={{ mx: 2, display: "flex", justifyContent: "center" }}>
-          <Typography variant="subtitle2" sx={{ mx: 2}}>لا أحد يريد قراءة عناوين المدونات المملة ، وإنشاء عناوين مدونة جذابة باستخدام هذه الأداة</Typography>
-        </Grid>
-        <Divider variant="middle" sx={{ my: 4 }} />
-        <Grid>
-          <form
-            noValidate
-            onSubmit={formik.handleSubmit}
-          >
-            <Grid sx={{ px: 2 , mb: 2 }}>
-              <Typography variant="h6" sx={{ mx: 2}}>{t('Language')}</Typography>
-              <Select
-                sx={{ width: "100%" }}
-                name="language"
-                value={formik.values.language}
-                onChange={formik.handleChange}
-              >
-                {languages.map((language, index) => (
-
-                  <MenuItem key={index} value={language.name}>
-                    {<img src={language.src}  alt={language.name} width="20px" height="20px"/>}  {t(language.name)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Grid>
-            <Grid sx={{ px: 2 , mb: 2 }} >
-              <Typography variant="h6" sx={{ mx: 2}}>{t('What is the theme of your theme is about?')}</Typography>
-              <TextField
-                fullWidth
-                label={t('a description . . .')}
-                name="description"
-                multiline
-                rows={4}
-                onChange={formik.handleChange}
-                value={formik.values.description}
-              />
-            </Grid>
-            <Grid sx={{ px: 2 , mb: 2 }}>
-              <Typography variant="h6" sx={{ mx: 2}}>{t('creativity level')}</Typography>
-              <Select
-                sx={{ width: "100%" }}
-                name="creativityLevel"
-                value={formik.values.creativityLevel}
-                onChange={formik.handleChange}
-              >
-                {levels.map((level, index) => (
-                  <MenuItem key={index} value={level}>
-                    {t(level)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Grid>
-            <Grid sx={{ px: 2 , mb: 2, display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-              <Grid sx={{ width: "100%", mr: 2  }} >
-                <Typography variant="h6" sx={{ mx: 2}}>{t('The number of results')}</Typography>
-                <Select
-                  sx={{ width: "100%" }}
-                  name="results"
-                  value={formik.values.results}
-                  onChange={formik.handleChange}
-                >
-                  {results.map((result, index) => (
-                    <MenuItem key={index} value={result}>
-                      {result}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </Grid>
-              <Grid sx={{ width: "100%", ml: 2 }}>
-                <Typography variant="h6" sx={{ mx: 2}}>{t('The maximum length of the result')}</Typography>
-                <Select
-                  sx={{ width: "100%" }}
-                  name="length"
-                  value={formik.values.length}
-                  onChange={formik.handleChange}
-                >
-                  {lengths.map((length, index) => (
-                    <MenuItem key={index} value={length}>
-                      {length}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </Grid>
-            </Grid>
-            <Grid sx={{ px: 2 , mb: 2 }} >
-              <Button sx={{ width: "100%", bgcolor: "#00314C" }} type="submit">
-                <Typography variant="h6" sx={{ my: 1, color: "#ffffff"}}>{t('create')}</Typography>
-              </Button>
-            </Grid>
-          </form>
-        </Grid>
+        <TemplateCreateForm
+          form={formik}
+          onSubmit={formik.handleSubmit}
+          formikLanguage={formik.values.language}
+          formikOnchange={formik.handleChange}
+          formikhandleChangeTextField={formik.handleChange}
+          formikDescription={formik.values.description}
+          formikCreativityLevel={formik.values.creativityLevel}
+          formikResults={formik.values.results}
+          formikLength={formik.values.length}
+          Id={Id}
+          languages={languages}
+          levels={levels}
+          results={results}
+          lengths={lengths}
+        />
       </Grid>
       <Grid sx={{ bgcolor: "#ffffff", width: "60%", borderRadius: 1 }}>
-
+        <form>
+          <Grid sx={{ display: "flex", flexDirection: "row", m: 2 }}>
+            <Grid sx={{ width: "30%" }}>
+              <TextField
+                label={t('file name')}
+                name="fileName"
+              />
+            </Grid>
+            <Grid sx={{ width: "30%" }}>
+              <Select
+                sx={{ mx: 2, width: "80%"  }}
+                name="workbook"
+                value={formik.values.workbook}
+                onChange={formik.handleChange}
+              >
+                {workbooks.map((workbook: string, index: React.Key | null | undefined) => (
+                  <MenuItem key={index} value={workbook} >
+                    {workbook}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Grid>
+            <Grid sx={{ display: "flex", flexDirection: "row" }}>
+              <Box sx={{ bgcolor: "#F5F9FC", display: "flex", justifyContent: "center", alignItems: "center", mr: 1, px: 1, borderRadius: 1 }}>
+                <DocIcon />
+              </Box>
+              <Box sx={{ bgcolor: "#F5F9FC", display: "flex", justifyContent: "center", alignItems: "center", mr: 1, px: 1, borderRadius: 1 }}>
+                <PdfIcon />
+              </Box>
+              <Box sx={{ bgcolor: "#F5F9FC", display: "flex", justifyContent: "center", alignItems: "center", mr: 1, px: 1, borderRadius: 1 }}>
+                <TextIcon />
+              </Box>
+              <Box sx={{ bgcolor: "#F5F9FC", display: "flex", justifyContent: "center", alignItems: "center", mr: 1, px: 1, borderRadius: 1 }}>
+                <CopyIcon />
+              </Box>
+            </Grid>
+            <Grid>
+              <Button sx={{ width: "100%", bgcolor: "#00314C" }} type="submit">
+                <Typography variant="subtitle2" sx={{ my: 1, color: "#ffffff"}}>{t('save file')}</Typography>
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
       </Grid>
     </Grid>
     </>
