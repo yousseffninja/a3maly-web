@@ -52,6 +52,7 @@ export const SubscrptionBuy = () => {
                 display: "flex",
                 justifyContent: "center",
                 my: 5,
+
               }}>
                 <Grid sx={{ display: "flex", flexDirection: "row" }}>
                   <Grid sx={{ mx: 2 }}>
@@ -104,14 +105,14 @@ export const SubscrptionBuy = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button sx={{ bgcolor: "#00314C", color: "#ffffff" }}>
                   <Typography sx={{ fontFamily: 'A Jannat LT', }}>{t('subscribe now')}</Typography>
                 </Button>
               </Box>
             </Box>
           </Box>
-          <Box sx={{ width: "48%", border: "1px solid #757575", borderRadius: 3 }}>
+          <Box sx={{ width: "48%", border: "1px solid #757575", borderRadius: 3, pb: 3 }}>
             <Grid sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
               <Typography variant="h3" sx={{
                 fontFamily: 'A Jannat LT',
@@ -127,7 +128,8 @@ export const SubscrptionBuy = () => {
             </Grid>
             <Box sx={{ background: `url(${Green.src})`,
               backgroundRepeat: "no-repeat",
-              backgroundSize: "Cover", }}
+              backgroundSize: "100% 100%",
+            }}
             >
               <Box sx={{
                 display: "flex",
