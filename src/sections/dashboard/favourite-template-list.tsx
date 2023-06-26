@@ -28,8 +28,8 @@ export const FavouriteTemplateList: React.FC<{ bestTemplates: IFavouriteTemplate
               {e.icon}
             </Box>
             <Box>
-              <Typography variant="subtitle1">{t(e.title)}</Typography>
-              <Typography variant="subtitle1">{t(e.subtitle)}</Typography>
+              <Typography variant="subtitle1" sx={{ fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 700 }}>{t(e.title)}</Typography>
+              <Typography variant="subtitle1" sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 400, color: "#757575"  }}>{t(e.subtitle)}</Typography>
             </Box>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>

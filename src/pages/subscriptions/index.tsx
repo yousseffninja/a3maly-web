@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {
   Container,
   Stack,
-  Box, Divider
+  Box, Divider, Typography
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { PreviousPayments } from '@/sections/subscriptions/previous-payments';
@@ -35,7 +35,7 @@ const Page = () => {
                   transition: "background 1s, color 1s",
                 },
               }} onClick={() => setSelectedTab(i)}>
-                {t(e)}
+                <Typography sx={{ fontFamily: 'A Jannat LT', }}>{t(e)}</Typography>
               </Box>
             ))}
           </Box>

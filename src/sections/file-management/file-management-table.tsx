@@ -33,17 +33,17 @@ export const FileManagementTable = (props: any) => {
   return (
     <Card sx={{width: "100%", color: "#ffffff" }}>
       <Box sx={{ minWidth: "49%", color: "#ffffff" }}>
-        <Typography sx={{ color: "#000000", m: 2 }}>{t("All my files")}</Typography>
+        <Typography sx={{ color: "#000000", m: 2, fontFamily: 'A Jannat LT', fontSize: 14, fontWeight: 700 }}>{t("All my files")}</Typography>
         <Table>
           <TableHead>
             <TableRow >
-              <TableCell>{t('File Name')}</TableCell>
-              <TableCell>{t('Workbook')}</TableCell>
-              <TableCell>{t('Category')}</TableCell>
-              <TableCell>{t('The number of words')}</TableCell>
-              <TableCell>{t('the language')}</TableCell>
-              <TableCell>{t('Created at')}</TableCell>
-              <TableCell>{t('Action')}</TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} > {t('File Name')}</Typography> </TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} >{t('Workbook')}</Typography> </TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} >{t('Category')}</Typography> </TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} >{t('The number of words')}</Typography> </TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} >{t('the language')}</Typography> </TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} >{t('Created at')}</Typography> </TableCell>
+              <TableCell><Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700 }} >{t('Action')}</Typography> </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -51,22 +51,34 @@ export const FileManagementTable = (props: any) => {
               return (
                 <TableRow hover key={item.fileName} >
                   <TableCell>
-                    {item.fileName}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, color: "#939393" }}>
+                      {t('File Name')}
+                    </Typography>
                   </TableCell>
                   <TableCell>
-                    {item.workbook}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, color: "#939393" }}>
+                      {item.workbook}
+                    </Typography>
                   </TableCell>
                   <TableCell>
-                    {item.category}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, color: "#939393" }}>
+                      {item.category}
+                    </Typography>
                   </TableCell>
                   <TableCell>
-                    {item.wordNumber}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, color: "#939393" }}>
+                      {item.wordNumber}
+                    </Typography>
                   </TableCell>
                   <TableCell>
-                    {item.language}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, color: "#939393" }}>
+                      {item.language}
+                    </Typography>
                   </TableCell>
                   <TableCell>
-                    {item.created_at}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 700, color: "#939393" }}>
+                      {item.created_at}
+                    </Typography>
                   </TableCell>
                   <TableCell>
                     <SvgIcon sx={{ mr: 3 }}>

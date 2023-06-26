@@ -1,6 +1,15 @@
 import NextLink from 'next/link';
 import PropTypes from 'prop-types';
-import { Box, ButtonBase, Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import {
+  Box,
+  ButtonBase,
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography
+} from '@mui/material';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import {useTranslation} from 'react-i18next';
@@ -89,7 +98,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
             }),
           }}
         >
-          {t(title)}
+          <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 400, color: "#757575" }} >{t(title)}</Typography>
         </Box>
       </ButtonBase>
       {items != undefined && (

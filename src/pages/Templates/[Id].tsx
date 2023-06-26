@@ -153,7 +153,7 @@ const Page = () => {
             </Grid>
             <Grid>
               <Button sx={{ width: "100%", bgcolor: "#00314C" }} type="submit">
-                <Typography variant="subtitle2" sx={{ my: 1, color: "#ffffff"}}>{t('save file')}</Typography>
+                <Typography variant="subtitle2" sx={{ my: 1, color: "#ffffff", fontFamily: 'A Jannat LT',}}>{t('save file')}</Typography>
               </Button>
             </Grid>
           </Grid>

@@ -45,57 +45,57 @@ const Page = () => {
   const card = [
     {
       title: "Blog Post",
-      subtitle: "sub 1",
-      description: "Create a blog post",
+      subtitle: "Blog Post",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceSeoIcon />,
       favourite: true,
     },
     {
       title: "Email",
-      subtitle: "sub 1",
-      description: "Create an email Create an email Create an email Create an email Create an emailCreate an email Create an email Create an email",
+      subtitle: "Email",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <MessageIcon />,
       favourite: true,
     },
     {
       title: "Image",
-      subtitle: "sub 1",
-      description: "Create an image",
+      subtitle: "Image",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceEmailIcon />,
       favourite: false,
     },
     {
       title: "Video",
-      subtitle: "sub 1",
-      description: "Create a video",
+      subtitle: "Video",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceAdsIcon/>,
       favourite: true,
     },
     {
       title: "Video",
-      subtitle: "sub 1",
-      description: "Create a video",
+      subtitle: "Video",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceSmsIcon />,
       favourite: true,
     },
     {
       title: "Video",
-      subtitle: "sub 1",
-      description: "Create a video",
+      subtitle: "Video",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceSocialIcon />,
       favourite: true,
     },
     {
       title: "Video",
-      subtitle: "sub 1",
-      description: "Create a video",
+      subtitle: "Video",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceCommerceeIcon />,
       favourite: true,
     },
     {
       title: "Video",
-      subtitle: "sub 1",
-      description: "Create a video",
+      subtitle: "Video",
+      description: "Need to create a content? We got you covered! Checkout the list of templates that you can use",
       icon: <ServiceCommerceeIcon/>,
       favourite: false,
     }
@@ -125,8 +125,8 @@ const Page = () => {
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between" spacing={4}>
               <Stack spacing={1}>
-                <Typography variant="h6">{t(title)}</Typography>
-                <Typography variant="subtitle2">Need to create a content? We got you covered! Checkout the list of templates that you can use</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'A Jannat LT', fontSize: 14, fontWeight: 700 }}>{t(title)}</Typography>
+                <Typography variant="subtitle2" sx={{ fontFamily: 'A Jannat LT', fontSize: 12, fontWeight: 400 }}>{t('Need to create a content? We got you covered! Checkout the list of templates that you can use')}</Typography>
               </Stack>
             </Stack>
             <Box sx={{ bgcolor: "#ffffff", p: 3 }}>
@@ -146,7 +146,7 @@ const Page = () => {
                       transition: "background 1s, color 1s",
                     },
                   }} onClick={() => setSelectedTab(i)}>
-                    {t(e)}
+                    <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 14, fontWeight: 400 }}>{t(e)}</Typography>
                   </Box>
                 ))}
               </Grid>
@@ -172,10 +172,10 @@ const Page = () => {
                         </Box>
                         {e.favourite ? <StarIcon sx={{ color: "#FF9D00" }} /> : <StarBorderIcon sx={{ color: "#FF9D00" }} />}
                       </Grid>
-                      <Typography variant="h6" sx={{ pb: 0.2 }}>{t(e.title)}</Typography>
-                      <Typography variant="body2" sx={{ pb: 0.2 }}>{t(e.subtitle)}</Typography>
+                      <Typography variant="h6" sx={{ pb: 0.2, fontFamily: 'A Jannat LT', }}>{t(e.title)}</Typography>
+                      <Typography variant="body2" sx={{ pb: 0.2, fontFamily: 'A Jannat LT', }}>{t(e.subtitle)}</Typography>
                       <Divider variant="middle" sx={{ mb: .02 }} />
-                      <Typography variant="subtitle2">{t(e.description)}</Typography>
+                      <Typography variant="subtitle2" sx={{ fontFamily: 'A Jannat LT', }}>{t(e.description)}</Typography>
                     </Box>
                     <Button sx={{ bgcolor: "#ffffff", color: "#000000" }} onClick={() => OnClickHandler(e.title)}>{t('create')}</Button>
                   </Box>

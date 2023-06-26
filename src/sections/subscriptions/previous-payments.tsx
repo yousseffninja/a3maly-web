@@ -1,6 +1,5 @@
 import { SubscrintionHeader } from '@/sections/dashboard/subscrintion-header';
 import React from 'react';
-import { FileManagementTable } from '@/sections/file-management/file-management-table';
 import { Grid } from '@mui/material';
 import { PaymentTable } from '@/sections/subscriptions/payment-table';
 

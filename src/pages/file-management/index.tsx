@@ -59,7 +59,7 @@ const Page = () => {
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between" spacing={4}>
               <Stack spacing={1}>
-                <Typography variant="h5">{t(title)}</Typography>
+                <Typography variant="h5" sx={{ fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 700, mx:1 }}>{t(title)}</Typography>
               </Stack>
             </Stack>
             <SearchBar

@@ -14,6 +14,7 @@ import axiosClient from "@/configs/axios-client";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/configs/i18next";
 const clientSideEmotionCache = createEmotionCache();
+import '../style/fonts.css'
 
 const SplashScreen = () => null;
 
