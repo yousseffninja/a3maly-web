@@ -52,6 +52,7 @@ export const SubscrptionBuy = () => {
                 display: "flex",
                 justifyContent: "center",
                 my: 5,
+
               }}>
                 <Grid sx={{ display: "flex", flexDirection: "row" }}>
                   <Grid sx={{ mx: 2 }}>
