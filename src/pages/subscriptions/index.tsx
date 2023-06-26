@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { PreviousPayments } from '@/sections/subscriptions/previous-payments';
+import { SubscrptionBuy } from '@/sections/subscriptions/subscrption-buy';
 
 const Page = () => {
   const {t}= useTranslation();
@@ -40,7 +41,7 @@ const Page = () => {
           </Box>
         </Stack>
         <Divider variant="middle" sx={{ mb: 2 }} />
-        {selectedTab === 1 ? <PreviousPayments /> : null}
+        {selectedTab === 1 ? <PreviousPayments /> : <SubscrptionBuy />}
       </Container>
     </>
   );
