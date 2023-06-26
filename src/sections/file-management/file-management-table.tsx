@@ -69,7 +69,7 @@ export const FileManagementTable = (props: any) => {
                     {item.created_at}
                   </TableCell>
                   <TableCell>
-                    <SvgIcon>
+                    <SvgIcon sx={{ mr: 3 }}>
                       <TrashIcon />
                     </SvgIcon>
                     <SvgIcon>
