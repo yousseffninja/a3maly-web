@@ -11,6 +11,7 @@ import MenuPackageIcon from '@/assets/icons/menuPackageIcon';
 import MenuContactIcon from '@/assets/icons/menuContactIcon';
 import MenuHelpIcon from '@/assets/icons/menuHelpIcon';
 import MenuSettingIcon from '@/assets/icons/menuSettingIcon';
+import HomeWorkOutlinedIcon from '@mui/icons-material/HomeWorkOutlined';
 export const items = [
   {
     external: false,
@@ -21,6 +22,18 @@ export const items = [
     icon: (
       <SvgIcon fontSize="small">
         <MenuDashboardIcon />
+      </SvgIcon>
+    ),
+  },
+  {
+    external: false,
+    disabled: false,
+    menu: false,
+    title: "my project",
+    path: "my-project",
+    icon: (
+      <SvgIcon fontSize="small">
+        <HomeWorkOutlinedIcon sx={{ color: "#757575" }} />
       </SvgIcon>
     ),
   },

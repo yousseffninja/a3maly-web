@@ -8,8 +8,10 @@ import {
 import { useTranslation } from 'react-i18next';
 import { PreviousPayments } from '@/sections/subscriptions/previous-payments';
 import { SubscrptionBuy } from '@/sections/subscriptions/subscrption-buy';
+import Head from 'next/head';
 
 const Page = () => {
+  const title = "Subscriptions";
   const {t}= useTranslation();
 
   const tabs = ["subscriptions", "previous payments"];
@@ -17,6 +19,11 @@ const Page = () => {
 
   return (
     <>
+      <Head>
+        <title>
+          {t(title)} | A3maly
+        </title>
+      </Head>
       <Container maxWidth="xl" sx={{ bgcolor: "#ffffff", mt: 4, mx: 2, px: 2, pt : 2 }}>
         <Stack spacing={3}>
           <Box sx={{ display: "flex", flexDirection: "row" }}>

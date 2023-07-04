@@ -18,7 +18,7 @@ import ServiceSocialIcon from '@/assets/icons/serviceSocialIcon';
 import ServiceCommerceeIcon from '@/assets/icons/serviceCommerceeIcon';
 import { ServiceList } from '@/sections/dashboard/service-list';
 import { FavouriteTemplateList } from '@/sections/dashboard/favourite-template-list';
-import GeneratorChat from '@/sections/overview/generator-chat';
+import { GeneratorChat } from '@/sections/overview/generator-chat';
 
 const Page = () => {
   const {t}= useTranslation();

@@ -15,7 +15,6 @@ import { useTranslation } from 'react-i18next';
 export const TemplateCreateForm = (props: any) => {
   const { t } = useTranslation();
   const {
-    formik,
     onSubmit,
     formikLanguage,
     formikOnchange,

@@ -111,7 +111,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          {t(title)} | Pronto
+          {t(title)} | A3maly
         </title>
       </Head>
       <Box
