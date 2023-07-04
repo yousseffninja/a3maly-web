@@ -69,7 +69,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          {t("Register")} | Pronto
+          {t("Register")} | A3maly
         </title>
       </Head>
       <Box

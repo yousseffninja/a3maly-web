@@ -80,7 +80,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          {t("Login")} | Pronto
+          {t("Login")} | A3maly
         </title>
       </Head>
       <Box

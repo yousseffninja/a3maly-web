@@ -81,7 +81,7 @@ const useChartOptions = () => {
 
 
 
-const GeneratorChat = () => {
+export const GeneratorChat = () => {
   const {t}= useTranslation();
   const years = ['2023', '2022', '2021', '2020', '2019', '2018', '2017'];
 
@@ -126,6 +126,3 @@ const GeneratorChat = () => {
     </>
   );
 }
-
-
-export default GeneratorChat;
