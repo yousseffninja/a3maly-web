@@ -136,7 +136,7 @@ const Page = () => {
                           "& .MuiInputBase-input::placeholder": {
                             textAlign: "left",
                             direction: "ltr",
-                        },
+                          },
                         }}
                         error={!!(formik.touched.email && formik.errors.email)}
                         fullWidth
