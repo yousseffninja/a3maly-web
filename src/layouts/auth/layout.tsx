@@ -56,7 +56,7 @@ export const AuthLayout = (props: { children: any; }) => {
             display: 'flex',
             justifyContent: 'center',
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: "100% 100%",
             height: "100%",
             '& img': {
               maxWidth: '100%'
