@@ -3,6 +3,7 @@ import { Box, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import LoginBg from '../../assets/Login/login-bg.png';
 import RegisterBg from '../../assets/Login/register-bg.png'
+import ForgetPasswordBg from '../../assets/Login/forget-password-bg.png'
 import { useTranslation } from 'react-i18next';
 import {useRouter} from 'next/router';
 
@@ -56,7 +57,7 @@ export const AuthLayout = (props: { children: any; }) => {
           lg={6}
           sx={{
             alignItems: 'center',
-            background: router.asPath === "/auth/login" ? `url(${LoginBg.src})` : router.asPath === "/auth/register" ? `url(${RegisterBg.src})` : null,
+            background: router.asPath === "/auth/login" ? `url(${LoginBg.src})` : router.asPath === "/auth/register" ? `url(${RegisterBg.src})` : `url(${ForgetPasswordBg.src})`,
             color: 'white',
             display: 'flex',
             justifyContent: 'center',
