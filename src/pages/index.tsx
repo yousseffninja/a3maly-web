@@ -19,9 +19,11 @@ import ServiceCommerceeIcon from '@/assets/icons/serviceCommerceeIcon';
 import { ServiceList } from '@/sections/dashboard/service-list';
 import { FavouriteTemplateList } from '@/sections/dashboard/favourite-template-list';
 import { GeneratorChat } from '@/sections/overview/generator-chat';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
   const {t}= useTranslation();
+  const router = useRouter();
   const title = "Dashboard";
 
   const services = [
@@ -104,6 +106,10 @@ const Page = () => {
     ],
   }
 
+  const OnClickHandlerTemplates = () => {
+    router.push(`/Templates/`);
+  }
+
 
   return(
   <>
@@ -134,7 +140,9 @@ const Page = () => {
                 <Typography variant="h6" sx={{ fontFamily: 'A Jannat LT', }}>{t("your favorite models")} </Typography>
                 <Typography sx={{ color: "#00CDE7", ml: 2, fontFamily: 'A Jannat LT', }}>{bestTemplates.count}</Typography>
               </Box>
-              <Typography variant="h6" sx={{ color: "#00CDE7", fontFamily: 'A Jannat LT', }}>{t("More")}</Typography>
+              <Box sx={{ cursor: "pointer" }} onClick={() => OnClickHandlerTemplates()}>
+                <Typography variant="h6" sx={{ color: "#00CDE7", fontFamily: 'A Jannat LT' }}>{t("More")}</Typography>
+              </Box>
             </Box>
             <FavouriteTemplateList bestTemplates={bestTemplates} />
           </Box>

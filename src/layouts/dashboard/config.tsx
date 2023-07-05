@@ -33,7 +33,7 @@ export const items = [
     path: "my-project",
     icon: (
       <SvgIcon fontSize="small">
-        <HomeWorkOutlinedIcon sx={{ color: "#757575" }} />
+        <HomeWorkOutlinedIcon sx={{ color: "#ffffff" }} />
       </SvgIcon>
     ),
   },

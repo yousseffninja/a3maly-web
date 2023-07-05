@@ -5,14 +5,14 @@ const MenuHelpIcon = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElem
     <g fill="none" fillRule="evenodd">
       <path d="M-2.25-2.25h24v24h-24z" />
       <path
-        stroke="#757575"
+        stroke="#ffffff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
         d="M5.75 9.75a4 4 0 1 0 8 0 4 4 0 0 0-8 0"
       />
       <path
-        stroke="#757575"
+        stroke="#ffffff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}

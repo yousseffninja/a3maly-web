@@ -10,7 +10,7 @@ const MenuContactIcon = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGE
     <g fill="none" fillRule="evenodd">
       <path d="M-2.25-3.25h24v24h-24z" />
       <path
-        stroke="#757575"
+        stroke="#ffffff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
