@@ -29,7 +29,7 @@ const Page = () => {
   const title = "Templates";
   const tabs = ["All", "Blog", "Email", "advertisements", "messages", "SEO", "Social Media", "digital marketing"];
   const sxAlignmentBox = {
-    width: "23%",
+    width: 365,
     p: 1,
     px:3,
     py: 3,
