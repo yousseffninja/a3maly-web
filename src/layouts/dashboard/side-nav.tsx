@@ -32,7 +32,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
         '& .simplebar-scrollbar:before': {
         },
         direction: 'ltr',
-        background: '#fff',
+        background: '#084C71',
         color: '#000',
       }}
     >
@@ -68,7 +68,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
             py: 3
           }}
         >
-          <Typography variant="subtitle2">{t("Main list")}</Typography>
+          <Typography variant="subtitle2" sx={{ color: "#ffffff" }}>{t("Main list")}</Typography>
           <Stack
             component="ul"
             spacing={0.5}
@@ -83,7 +83,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
               if (i === 4){
                 return(
                   <>
-                    <Typography variant="subtitle2">{t("General settings")}</Typography>
+                    <Typography variant="subtitle2" sx={{ color: "#ffffff" }}>{t("General settings")}</Typography>
                     <SideNavItem
                       active={active}
                       disabled={item.disabled}

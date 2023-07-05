@@ -7,7 +7,7 @@ const MenuFilesIcon = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGEle
     {...props}
   >
     <title>{"menu_files"}</title>
-    <g fill="none" fillRule="nonzero" stroke="#757575" strokeWidth={1.5}>
+    <g fill="none" fillRule="nonzero" stroke="#ffffff" strokeWidth={1.5}>
       <path d="m20.104 13.02-.4 5c-.15 1.53-.27 2.7-2.98 2.7H4.144c-2.71 0-2.83-1.17-2.98-2.7l-.4-5c-.08-.83.18-1.6.65-2.19l.02-.02c.55-.67 1.38-1.09 2.31-1.09h13.38c.93 0 1.75.42 2.29 1.07.01.01.02.02.02.03.49.59.76 1.36.67 2.2Z" />
       <path
         strokeLinecap="round"

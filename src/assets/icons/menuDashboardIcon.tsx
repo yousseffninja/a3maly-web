@@ -5,7 +5,7 @@ const MenuDashboardIcon = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSV
     <g fill="none" fillRule="evenodd">
       <path d="M-3.25-3.25h24v24h-24z" />
       <path
-        stroke="#000"
+        stroke="#ffffff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}

@@ -33,7 +33,7 @@ export const TopNav = (props: { onNavOpen: any; }) => {
         component="header"
         sx={{
           backdropFilter: "blur(6px)",
-          backgroundColor: common.white,
+          backgroundColor: "#00314C",
           position: "sticky",
           left: {
             lg: `${SIDE_NAV_WIDTH}px`
@@ -64,7 +64,7 @@ export const TopNav = (props: { onNavOpen: any; }) => {
           >
             {!lgUp && (
               <IconButton onClick={onNavOpen}>
-                <SvgIcon fontSize="small">
+                <SvgIcon fontSize="small" >
                   <Bars3Icon />
                 </SvgIcon>
               </IconButton>
@@ -72,7 +72,7 @@ export const TopNav = (props: { onNavOpen: any; }) => {
             <Tooltip title="Search">
               <IconButton>
                 <SvgIcon fontSize="small">
-                  <MagnifyingGlassIcon />
+                  <MagnifyingGlassIcon  />
                 </SvgIcon>
               </IconButton>
             </Tooltip>

@@ -98,7 +98,7 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
             }),
           }}
         >
-          <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 400, color: "#757575" }} >{t(title)}</Typography>
+          <Typography sx={{ fontFamily: 'A Jannat LT', fontSize: 16, fontWeight: 400, color: "#ffffff" }} >{t(title)}</Typography>
         </Box>
       </ButtonBase>
       {items != undefined && (

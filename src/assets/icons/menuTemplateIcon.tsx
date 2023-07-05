@@ -8,7 +8,7 @@ const MenuTemplateIcon = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVG
   >
     <title>{"menu_templates_active"}</title>
     <g
-      fill="#09646F"
+      fill="#ffffff"
       fillRule="nonzero"
       stroke="#09646F"
       strokeLinecap="round"

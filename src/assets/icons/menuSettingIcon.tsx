@@ -10,7 +10,7 @@ const MenuSettingIcon = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGE
     <g
       fill="none"
       fillRule="nonzero"
-      stroke="#757575"
+      stroke="#ffffff"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.5}
