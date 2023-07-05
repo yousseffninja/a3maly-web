@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types';
-import NextLink from 'next/link';
 import { Box, Typography, Unstable_Grid2 as Grid } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import LoginBg from '../../assets/Login/login-bg.png';
+import RegisterBg from '../../assets/Login/register-bg.png'
 import { useTranslation } from 'react-i18next';
-// TODO: Change subtitle text
+import {useRouter} from 'next/router';
 
 export const AuthLayout = (props: { children: any; }) => {
   const { children } = props;
+  const router = useRouter();
   const {t} = useTranslation();
+
+  useEffect(() => {
+    console.log(router.asPath)
+  }, [])
 
   return (
     <Box
@@ -51,7 +56,7 @@ export const AuthLayout = (props: { children: any; }) => {
           lg={6}
           sx={{
             alignItems: 'center',
-            background: `url(${LoginBg.src})`,
+            background: router.asPath === "/auth/login" ? `url(${LoginBg.src})` : router.asPath === "/auth/register" ? `url(${RegisterBg.src})` : null,
             color: 'white',
             display: 'flex',
             justifyContent: 'center',
