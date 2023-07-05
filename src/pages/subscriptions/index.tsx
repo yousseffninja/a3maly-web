@@ -48,7 +48,9 @@ const Page = () => {
           </Box>
         </Stack>
         <Divider variant="middle" sx={{ mb: 2 }} />
-        {selectedTab === 1 ? <PreviousPayments /> : <SubscrptionBuy />}
+        <Box sx={{ width: "100%" }}>
+          {selectedTab === 1 ? <PreviousPayments /> : <SubscrptionBuy />}
+        </Box>
       </Container>
     </>
   );
