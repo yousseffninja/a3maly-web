@@ -3,16 +3,14 @@ import React from 'react';
 import {
   Grid,
   Typography,
-  Divider,
   Select,
   MenuItem,
   TextField,
   Button, Box
 } from '@mui/material';
 import { useRouter } from 'next/router';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import StarIcon from '@mui/icons-material/Star';
-import ServiceSeoIcon from '@/assets/icons/serviceSeoIcon';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -21,6 +19,7 @@ import PdfIcon from '@/assets/icons/pdfIcon';
 import DocIcon from '@/assets/icons/docIcon';
 import TextIcon from '@/assets/icons/textIcon';
 import CopyIcon from '@/assets/icons/copyIcon';
+import MUIRichTextEditor from "mui-rte-fixed";
 
 const Page = () => {
   const router = useRouter();
@@ -93,6 +92,34 @@ const Page = () => {
     }
   });
 
+  // @ts-ignore
+  const RTETheme = createTheme({
+    // @ts-ignore
+    overrides: {
+      MUIRichTextEditor: {
+        root: {
+          display: "flex",
+          justifyContent: "center",
+        },
+        editor: {
+          display: "flex",
+          justifyContent: "center",
+          width: 100
+        },
+      }
+    }
+  });
+
+  const save = (data: any) => {
+    console.log(typeof data, data);
+    // convertFromRaw(JSON.parse(data))
+    //   .getBlocksAsArray()
+    //   .map((block) => {
+    //     console.info("block: ", block);
+    //     console.log(block.getData());
+    //   });
+  };
+
   return (
     <>
     <Grid sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", my: 2 }}>
@@ -157,6 +184,13 @@ const Page = () => {
               </Button>
             </Grid>
           </Grid>
+          <ThemeProvider theme={RTETheme}>
+            <MUIRichTextEditor
+              label="Type something here..."
+              onSave={save}
+              inlineToolbar={true}
+            />
+          </ThemeProvider>
         </form>
       </Grid>
     </Grid>

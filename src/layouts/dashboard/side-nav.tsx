@@ -9,7 +9,7 @@ import {
   Typography
 } from '@mui/material';
 import React from 'react';
-import Logo from '../../assets/logo.png';
+import WhiteLogo from '../../assets/logo-white.png';
 import { Scrollbar } from '@/components/scrollbar';
 import { items } from './config';
 import { SideNavItem } from './side-nav-item';
@@ -57,7 +57,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
               zIndex: (theme) => theme.zIndex.appBar + 350,
             }}
           >
-            <img src={Logo.src} className="App-logo" alt="logo" max-width={"100%"} />
+            <img src={WhiteLogo.src} className="App-logo" alt="logo" width={"100%"} />
           </Box>
         </Box>
         <Box
