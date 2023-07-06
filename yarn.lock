@@ -2394,6 +2394,16 @@ mui-rte-fixed@^2.1.0:
     draft-js "^0.11.7"
     immutable "^3.8.2"
 
+mui-rte@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/mui-rte/-/mui-rte-2.0.1.tgz"
+  integrity sha512-bFr+IDefwLlKwkzn2wnrH1GXy73vUtUhCMLyIbqJ4s7ge7LKnh7OxIYczU4Rd36rT0jXlLhLmkwnCRf35rTb0A==
+  dependencies:
+    "@types/draft-js" "^0.11.5"
+    classnames "^2.3.1"
+    draft-js "^0.11.7"
+    immutable "^3.8.2"
+
 multipipe@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/multipipe/-/multipipe-1.0.2.tgz"
