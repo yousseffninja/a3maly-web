@@ -31,7 +31,7 @@ export const AuthLayout = (props: { children: any; }) => {
       >
         <Grid
           xs={12}
-          lg={6}
+          lg={7}
           sx={{
             backgroundColor: 'background.paper',
             display: 'flex',
@@ -54,7 +54,7 @@ export const AuthLayout = (props: { children: any; }) => {
         </Grid>
         <Grid
           xs={12}
-          lg={6}
+          lg={5}
           sx={{
             alignItems: 'center',
             background: router.asPath === "/auth/login" ? `url(${LoginBg.src})` : router.asPath === "/auth/register" ? `url(${RegisterBg.src})` : `url(${ForgetPasswordBg.src})`,
@@ -63,6 +63,7 @@ export const AuthLayout = (props: { children: any; }) => {
             justifyContent: 'center',
             backgroundRepeat: "no-repeat",
             backgroundSize: "100% 100%",
+            backgroundPosition: "center",
             height: "100%",
             '& img': {
               maxWidth: '100%'

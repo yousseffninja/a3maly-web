@@ -258,24 +258,36 @@ export const AuthProvider = ({ children }: any) => {
   }
 
   const signIn = async (username: string, password: string) => {
-    const res = await axiosClient.post("/auth/signin", { username, password });
-
-    if (res.status == 200) {
-      const { data } = res.data;
+    // const res = await axiosClient.post("/auth/signin", { username, password });
+    //
+    console.log(username, password);
+    if (username === "admin" && password === "admin") {
       const user: UserType = {
-        id: data.id,
-        name: data.fullname,
-        username: data.username,
-        email: data.email,
-        account: data.account,
-        roles: data.roles,
-        phone: data.phone,
-        avatar: data.avatar,
-      };
+        id: "1",
+        name: "Admin",
+        username: "admin",
+        email: "email@example.com",
+        account: "user",
+        roles: ["admin"],
+        phone: "+0123456789",
+        avatar: "data.avatar",
+    }
+    // if (res.status == 200) {
+    //   const { data } = res.data;
+    //   const user: UserType = {
+    //     id: data.id,
+    //     name: data.fullname,
+    //     username: data.username,
+    //     email: data.email,
+    //     account: data.account,
+    //     roles: data.roles,
+    //     phone: data.phone,
+    //     avatar: data.avatar,
+    //   };
       window.sessionStorage.setItem("authenticated", "true");
-      window.sessionStorage.setItem("token", data.access_token);
+      window.sessionStorage.setItem("token", "data.access_token");
       window.sessionStorage.setItem("user", JSON.stringify(user));
-      axiosClient.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
+      axiosClient.defaults.headers.common["Authorization"] = `Bearer ${"data.access_token"}`;
       setAuthUser(user);
       dispatch({
         type: HANDLERS.SIGN_IN,

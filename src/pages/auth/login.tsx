@@ -33,8 +33,8 @@ const Page = () => {
   const [method, setMethod] = useState('email');
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: 'admin',
+      password: 'admin',
       submit: null
     },
     validationSchema: Yup.object({
@@ -49,7 +49,8 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        // await auth?.signIn(values.email, values.password);
+        console.log(values.email, values.password)
+        await auth?.signIn(values.email, values.password);
         router.push('/');
       } catch (err:any) {
         helpers.setStatus({ success: false });
@@ -208,12 +209,16 @@ const Page = () => {
 
                   </FormControl>
                 </Grid>
-                <Box sx={{ gap:1, textTransform:"uppercase", width: "100%", display: "flex", justifyContent: "center" }}>
+                <Box sx={{ gap:1, textTransform:"uppercase", width: "100%", display: "flex", justifyContent: "center"  }} >
                     <Button
                       sx={{ mt: 3,textTransform:"uppercase",'&:hover':{background:"#000"}, width: 580, height: 66, bgcolor: "#00314C" }}
                       type="submit"
                       variant="contained"
-                      onClick={() => router.push('/')}
+                      onClick={async () => {
+                        console.log(formik.values.email, formik.values.password)
+                        await auth?.signIn(formik.values.email, formik.values.password);
+                        router.push('/');
+                      }}
                     >
                       {t('Login')}
                     </Button>
