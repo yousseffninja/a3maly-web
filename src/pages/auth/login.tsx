@@ -195,7 +195,7 @@ const Page = () => {
                         my:1,
                         alignItems:"baseline",
                       }}>
-                    <Typography variant="subtitle2" color="initial"><Link sx={{textDecoration:"none",'&:hover':{color:"#000"}, fontFamily: 'A Jannat LT', fontSize: 14, fontWeight: 700}} href='/auth/forget-password'>{t("Forgot password?")}</Link></Typography>
+                    <Typography variant="subtitle2" color="initial"><Link sx={{textDecoration:"none",'&:hover':{color:"#000000"}, fontFamily: 'A Jannat LT', fontSize: 14, fontWeight: 700}} href='/auth/forget-password'>{t("Forgot password?")}</Link></Typography>
                   <FormControl>
                     <FormControlLabel
                       control={<Checkbox
