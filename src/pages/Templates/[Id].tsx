@@ -19,7 +19,7 @@ import PdfIcon from '@/assets/icons/pdfIcon';
 import DocIcon from '@/assets/icons/docIcon';
 import TextIcon from '@/assets/icons/textIcon';
 import CopyIcon from '@/assets/icons/copyIcon';
-import MUIRichTextEditor from "mui-rte";
+import MUIRichTextEditor from "mui-rte-fixed";
 
 const Page = () => {
   const router = useRouter();
