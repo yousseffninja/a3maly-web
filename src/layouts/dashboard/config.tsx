@@ -30,12 +30,28 @@ export const items = [
     disabled: false,
     menu: false,
     title: "my project",
-    path: "my-project",
+    // path: "my-project",
     icon: (
       <SvgIcon fontSize="small">
         <HomeWorkOutlinedIcon sx={{ color: "#ffffff" }} />
       </SvgIcon>
     ),
+    children: [
+      {
+        external: false,
+        disabled: false,
+        menu: false,
+        title: "project details",
+        path: "/my-project/project-details",
+      },
+      {
+        external: false,
+        disabled: false,
+        menu: false,
+        title: "Project products",
+        path: "/my-project/project-products",
+      },
+    ],
   },
   {
     external: false,
@@ -55,6 +71,18 @@ export const items = [
     menu: false,
     title: "File Management",
     path: "/file-management",
+    icon: (
+      <SvgIcon fontSize="small">
+        <MenuFilesIcon />
+      </SvgIcon>
+    ),
+  },
+  {
+    external: false,
+    disabled: false,
+    menu: false,
+    title: "My work GPT",
+    path: "/my-work-gpt",
     icon: (
       <SvgIcon fontSize="small">
         <MenuFilesIcon />
