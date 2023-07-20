@@ -80,7 +80,7 @@ export const SideNav = (props: { open: any; onClose: any; }) => {
           >
             {items.map((item: any, i) => {
               const active = item.path ? (pathname === item.path) : false;
-              if (i === 4){
+              if (i === 5){
                 return(
                   <>
                     <Typography variant="subtitle2" sx={{ color: "#ffffff" }}>{t("General settings")}</Typography>

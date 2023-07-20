@@ -161,11 +161,11 @@ export const SideNavItem = (props: { active?: boolean; disabled: boolean; extern
                   <Box
                     component="span"
                     sx={{
-                      color: "#000",
+                      color: "#ffffff",
                       flexGrow: 1,
                       fontFamily: (theme) => theme.typography.fontFamily,
                       fontSize: 13,
-                      fontWeight: 600,
+                      fontWeight: 400,
                       lineHeight: "24px",
                       whiteSpace: "nowrap",
                       ...(active && {
